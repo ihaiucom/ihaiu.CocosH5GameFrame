@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="44whq70o" jpegQuality="80" compressPNG="true">
+  <resources>
+    <sound id="i7ne2w" name="MM_BGM_Award.mp3" path="/" exported="true"/>
+    <sound id="tys94p" name="MM_BGM_01.mp3" path="/" exported="true"/>
+    <sound id="tys94s" name="MM01_Button.wav" path="/" exported="true"/>
+    <sound id="tys94t" name="MM02_Popup.wav" path="/" exported="true"/>
+    <sound id="tys94v" name="MM04_Lose.wav" path="/" exported="true"/>
+    <sound id="tys94w" name="MM05_Upgrade.wav" path="/" exported="true"/>
+  </resources>
+  <publish name="Sound" genCode="true" maxAtlasSize="1024"/>
+</packageDescription>

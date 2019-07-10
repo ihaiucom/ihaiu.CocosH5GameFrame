@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "069d7250-6b21-4bbd-9690-2db892db9566",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "_ResFont_atlas0": {
+      "ver": "1.0.3",
+      "uuid": "094e39a1-2c56-430a-a224-78bd3e3ec1e7",
+      "rawTextureUuid": "069d7250-6b21-4bbd-9690-2db892db9566",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -64.5,
+      "offsetY": 33,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 895,
+      "height": 958,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

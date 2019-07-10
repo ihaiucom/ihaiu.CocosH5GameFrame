@@ -1,0 +1,17 @@
+{
+  "autoEnd": true,
+  "optionSetting": "./ExportSetting.json",
+  "fairyProject": "../",
+  "engineSettingJson": "./ExportFairyGUICode-EngineSetting-cocos.json",
+  "codePath": "../../../_gen/FairyGUICode",
+  "codeNamespace": "fgui",
+  "codeMemberNamePrefix": "m_",
+  "codeIgnoreNoname": true,
+  "codeIgnorIllegalClassName": false,
+  "codeIgnorNoExported": true,
+  "codeExportDepend": true,
+  "codeUseOtherPkgType": true,
+  "codeIgnorNCode": true,
+  "codeIgnorNCodeFlag": "~NCode",
+  "soundPackageName": "Sound"
+}

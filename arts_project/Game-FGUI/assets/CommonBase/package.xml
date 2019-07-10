@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="jaoapdic" jpegQuality="80" compressPNG="true">
+  <resources>
+    <component id="o3xj0" name="YellowButton.xml" path="/Button/" exported="true"/>
+    <component id="t3as2" name="BlueButton.xml" path="/Button/" exported="true"/>
+    <component id="ncg9i" name="CommonBadge.xml" path="/Badge/" exported="true"/>
+    <component id="ncg9j" name="NumberBadge.xml" path="/Badge/" exported="true"/>
+    <component id="j3nbu" name="YellowBigButton.xml" path="/Button/" exported="true"/>
+    <component id="j3nbv1" name="YellowSmallButton.xml" path="/Button/" exported="true"/>
+    <component id="kzdyt" name="BlueButtonSmall.xml" path="/Button/" exported="true"/>
+    <component id="kzdyv" name="YellowButtonSmall.xml" path="/Button/" exported="true"/>
+    <component id="szhv1h" name="AddButton.xml" path="/Button/" exported="true"/>
+    <component id="u6goi" name="RenameInput.xml" path="/Input/" exported="true"/>
+    <component id="t5vjvc" name="IconButton.xml" path="/Button/" exported="true"/>
+    <component id="iq08vy" name="BlueScaleButton.xml" path="/Button/" exported="true"/>
+    <component id="wpxmw2" name="RenameInput2.xml" path="/Input/" exported="true"/>
+    <component id="p9erw6" name="BubbleTalkSmall.xml" path="/BubbleTalk/" exported="true"/>
+    <component id="la1jw7" name="ShareButton.xml" path="/Button/" exported="true"/>
+    <component id="e12kwe" name="CloseButton.xml" path="/Button/" exported="true"/>
+    <component id="ma8exc" name="MenuButton.xml" path="/Button/" exported="true"/>
+  </resources>
+  <publish name="CommonBase" genCode="true"/>
+</packageDescription>

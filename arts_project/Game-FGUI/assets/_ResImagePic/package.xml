@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="vh8b3r0j" jpegQuality="80" compressPNG="true">
+  <resources>
+    <image id="mfsp11r" name="背景底板.png" path="/" exported="true"/>
+    <image id="o24t11t" name="半透遮罩.png" path="/" exported="true" scale="9grid" scale9grid="10,680,730,60"/>
+  </resources>
+  <publish name="_ResImagePic"/>
+</packageDescription>

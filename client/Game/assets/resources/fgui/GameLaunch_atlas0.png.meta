@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "bf743eb5-b38e-42e5-9dc8-66ff51686b52",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "GameLaunch_atlas0": {
+      "ver": "1.0.3",
+      "uuid": "10be2265-55b0-4861-acce-d0e4cef42185",
+      "rawTextureUuid": "bf743eb5-b38e-42e5-9dc8-66ff51686b52",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -1,
+      "offsetY": 1,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 510,
+      "height": 254,
+      "rawWidth": 512,
+      "rawHeight": 256,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

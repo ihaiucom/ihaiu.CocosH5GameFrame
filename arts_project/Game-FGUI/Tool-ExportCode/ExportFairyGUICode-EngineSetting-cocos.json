@@ -1,0 +1,25 @@
+{
+  "engineName": "laya2",
+  "templateDir": "./ExportFairyGUICode/Template/Cocos/",
+  "commonName": {
+    "GObject": "fgui.GObject",
+    "GComponent": "fgui.GComponent",
+    "Controller": "fgui.Controller",
+    "Transition": "fgui.Transition",
+    "GImage": "fgui.GImage",
+    "GTextField": "fgui.GTextField",
+    "GTextInput": "fgui.GTextInput",
+    "GRichTextField": "fgui.GRichTextField",
+    "GGraph": "fgui.GGraph",
+    "GGroup": "fgui.GGroup",
+    "GLoader": "fgui.GLoader",
+    "GList": "fgui.GList",
+    "GMovieClip": "fgui.GMovieClip",
+    "GButton": "fgui.GButton",
+    "GComboBox": "fgui.GComboBox",
+    "GLabel": "fgui.GLabel",
+    "GProgressBar": "fgui.GProgressBar",
+    "GScrollBar": "fgui.GScrollBar",
+    "GSlider": "fgui.GSlider"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "64588df9-c527-49ab-a2bd-f687fa49de1c",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "_ResImagePic_atlas0": {
+      "ver": "1.0.3",
+      "uuid": "aaeaeb8c-bc16-4a1e-9cf3-f2f177aaf935",
+      "rawTextureUuid": "64588df9-c527-49ab-a2bd-f687fa49de1c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -273,
+      "offsetY": 357,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1502,
+      "height": 1334,
+      "rawWidth": 2048,
+      "rawHeight": 2048,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

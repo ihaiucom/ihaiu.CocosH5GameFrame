@@ -1,0 +1,14 @@
+/////////////////////////////////////
+// ExportKey生成
+// http://blog.ihaiu.com
+/////////////////////////////////////
+
+export default class ImageKey
+{
+	// 0 KeyField
+	// 1 KeyValue
+	// 2 ID
+	// 3 ModuleName
+	// 4 Name
+
+}

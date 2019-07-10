@@ -1,0 +1,25 @@
+{
+  "engineName": "laya2",
+  "templateDir": "./Template/Laya2/",
+  "commonName": {
+    "GObject": "fairygui.GObject",
+    "GComponent": "fairygui.GComponent",
+    "Controller": "fairygui.Controller",
+    "Transition": "fairygui.Transition",
+    "GImage": "fairygui.GImage",
+    "GTextField": "fairygui.GTextField",
+    "GTextInput": "fairygui.GTextInput",
+    "GRichTextField": "fairygui.GRichTextField",
+    "GGraph": "fairygui.GGraph",
+    "GGroup": "fairygui.GGroup",
+    "GLoader": "fairygui.GLoader",
+    "GList": "fairygui.GList",
+    "GMovieClip": "fairygui.GMovieClip",
+    "GButton": "fairygui.GButton",
+    "GComboBox": "fairygui.GComboBox",
+    "GLabel": "fairygui.GLabel",
+    "GProgressBar": "fairygui.GProgressBar",
+    "GScrollBar": "fairygui.GScrollBar",
+    "GSlider": "fairygui.GSlider"
+  }
+}
