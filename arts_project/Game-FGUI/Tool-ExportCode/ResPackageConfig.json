@@ -1,7 +1,7 @@
 {
   "autoEnd": true,
   "optionSetting": "./ResPackageConfig.json",
-  "resPath": "../../../client/Game/assets/resources/fgui",
+  "resPath": "../../../client/Game/assets/resources/res/fgui",
   "packageFileExtension": ".bin",
   "templateDir": "./GenerateFguiResPackageConfig/Template",
   "codePath": "../../../client/Game/assets/Script/src/FGUI/",

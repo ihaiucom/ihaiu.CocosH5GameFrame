@@ -12,5 +12,5 @@
 	"compressDesc":true,
 	"fileExtension":"bin",
 	"packageCount":2,
-	"path":"../../client/Game/assets/resources/fgui"
+	"path":"../../client/Game/assets/resources/res/fgui"
 }
