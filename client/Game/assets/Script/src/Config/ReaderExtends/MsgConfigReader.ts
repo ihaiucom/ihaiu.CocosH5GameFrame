@@ -5,7 +5,6 @@
 
 
 import MsgConfigReaderStruct from "../ReaderStructs/MsgConfigReaderStruct";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import MsgConfig from "../ConfigExtends/MsgConfig";
 
 export default class MsgConfigReader extends MsgConfigReaderStruct

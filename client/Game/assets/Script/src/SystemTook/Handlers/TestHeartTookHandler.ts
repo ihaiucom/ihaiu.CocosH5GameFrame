@@ -12,9 +12,9 @@ export default class TestHeartTookHandler extends HeartTookHandler
     init()
     {
         // 前提模块ID, 只有这些模块是置顶时才通过
-        this.preconditionMenuIds = [MenuId.Home, MenuId.Studio];
+        this.preconditionMenuIds = [MenuId.Home, MenuId.Login];
         // 自己所属模块，用来验证功能是否解锁
-        this.menuId = MenuId.Studio;
+        this.menuId = MenuId.Login;
 
         // 心跳时间(单位毫秒)
         this.heartbeat = 10 * 1000;

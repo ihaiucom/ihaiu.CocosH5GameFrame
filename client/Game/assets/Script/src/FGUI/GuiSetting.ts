@@ -1,5 +1,7 @@
-import Dictionary from "../Libs/Helpers/Dictionary";
 import GuiResPackageConfig from "./GuiResPackageConfig";
+
+
+
 
 // =====================
 // fgui 设置
@@ -47,39 +49,61 @@ export default class GuiSetting
 
 
     // 包        
-    private static _uiPackageDict = new Dictionary<string, fairygui.UIPackage>();
+    private static _uiPackageDict: Dictionary<string, fairygui.UIPackage>;
+
+    
+    private static get uiPackageDict():Dictionary<string, fairygui.UIPackage>
+    {
+        if(!this._uiPackageDict)
+        {
+            this._uiPackageDict = new Dictionary<string, fairygui.UIPackage>();
+        }
+        return this._uiPackageDict
+    }
+
     // 包 引用次数
-    private static _uiPackageDictForReferenceNum = new Dictionary<string, number>();
+    private static _uiPackageDictForReferenceNum: Dictionary<string, number>;
+
+    
+    private static get uiPackageDictForReferenceNum():Dictionary<string, number>
+    {
+        if(!this._uiPackageDictForReferenceNum)
+        {
+            this._uiPackageDictForReferenceNum = new Dictionary<string, number>();
+        }
+        return this._uiPackageDictForReferenceNum
+    }
+
 
     public static addPackage(resKey: string, packageConfig?: GuiResPackageConfig): fairygui.UIPackage
     {
-        if (GuiSetting._uiPackageDict.hasKey(resKey))
+        if (GuiSetting.uiPackageDict.hasKey(resKey))
         {
-            return GuiSetting._uiPackageDict.getValue(resKey);
+            return GuiSetting.uiPackageDict.getValue(resKey);
         }
         else
         {
             let pkg = fairygui.UIPackage.addPackage(resKey);
-            GuiSetting._uiPackageDict.add(resKey, pkg);
+            GuiSetting.uiPackageDict.add(resKey, pkg);
             return pkg;
         }
     }
 
     public static removePackage(resKey: string, packageConfig?: GuiResPackageConfig)
     {
-        let pkg = GuiSetting._uiPackageDict.getValue(resKey);
+        let pkg = GuiSetting.uiPackageDict.getValue(resKey);
         if (pkg)
         {
             fairygui.UIPackage.removePackage(resKey);
             pkg.dispose();
-            GuiSetting._uiPackageDict.remove(resKey);
+            GuiSetting.uiPackageDict.remove(resKey);
         }
-        GuiSetting._uiPackageDictForReferenceNum.remove(resKey);
+        GuiSetting.uiPackageDictForReferenceNum.remove(resKey);
     }
 
     public static hasLoadPackage(resKey: string): boolean
     {
-        return GuiSetting._uiPackageDict.hasKey(resKey);
+        return GuiSetting.uiPackageDict.hasKey(resKey);
     }
 
     public static addPackageReferenceNum(resKey: string): number
@@ -90,7 +114,7 @@ export default class GuiSetting
             num = 1;
         }
         console.log("~~addPackageReferenceNum:  " + num + "  " + resKey);
-        GuiSetting._uiPackageDictForReferenceNum.add(resKey, num);
+        GuiSetting.uiPackageDictForReferenceNum.add(resKey, num);
         return num;
     }
 
@@ -103,13 +127,13 @@ export default class GuiSetting
         }
 
         console.log("~~removePackageReferenceNum:  " + num + "  " + resKey);
-        GuiSetting._uiPackageDictForReferenceNum.add(resKey, num);
+        GuiSetting.uiPackageDictForReferenceNum.add(resKey, num);
         return num;
     }
 
     public static getPackageReferenceNum(resKey: string): number
     {
-        return GuiSetting._uiPackageDictForReferenceNum.hasKey(resKey) ? GuiSetting._uiPackageDictForReferenceNum.getValue(resKey) : 0;
+        return GuiSetting.uiPackageDictForReferenceNum.hasKey(resKey) ? GuiSetting.uiPackageDictForReferenceNum.getValue(resKey) : 0;
     }
 
 

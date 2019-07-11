@@ -1,5 +1,4 @@
 import MModel from "../../GameFrame/Module/MModel";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import GashaponData from "../DataStructs/GashaponData";
 import Game from "../../Game";
 

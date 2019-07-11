@@ -3,7 +3,6 @@ import GMWindow from "../../../GM/GMWindow";
 import { GMCmdItemData } from "../../../GM/GMCmdItemData";
 import GMCmdSubMenuType from "../../../GM/GMCmdSubMenuType";
 import GM from "../../../GM/GM";
-import Handler = Laya.Handler;
 import GMCmdItem from "./GMCmdItem";
 import GameURL from "../../../Config/Keys/GameURL";
 
@@ -30,8 +29,8 @@ export default class GMCmdPage extends GMCmdPageStruct
 
 		GM.historCmd.read();
 
-		Laya.loader.load(GameURL.serverCmdUrl, Handler.create(this, this.onLoadJson, [GameURL.serverCmdUrl]));
-		Laya.loader.load(GameURL.clientCmdUrl, Handler.create(this, this.onLoadJson, [GameURL.clientCmdUrl]));
+		Engine.loader.load(GameURL.serverCmdUrl, Handler.create(this, this.onLoadJson, [GameURL.serverCmdUrl]));
+		Engine.loader.load(GameURL.clientCmdUrl, Handler.create(this, this.onLoadJson, [GameURL.clientCmdUrl]));
 	}
 
 	get inputTxt(): string
@@ -53,7 +52,7 @@ export default class GMCmdPage extends GMCmdPageStruct
 
 	onLoadJson(url)
 	{
-		let cmdList = Laya.loader.getRes(url);
+		let cmdList = Engine.loader.getRes(url);
 		if (!cmdList)
 			return;
 		cmdList = isString(cmdList) ? JSON.parse(cmdList) : <GMCmdItemData[]>cmdList;
@@ -83,7 +82,7 @@ export default class GMCmdPage extends GMCmdPageStruct
 	{
 		let isProto = false;
 		let str = this.inputTxt;
-		if (str.startsWith("eval"))
+		if (str.eStartsWith("eval"))
 		{
 			eval(str.replace("eval", ""));
 		}
@@ -134,7 +133,7 @@ export default class GMCmdPage extends GMCmdPageStruct
 		let list = this.m_list;
 		list.setVirtual();
 		list.setVirtualAndLoop();
-		if (!list.itemRenderer) list.itemRenderer = Handler.create(this, this.renderListItem, null, false);
+		list.setItemRenderer(this.renderListItem, this);
 		list.numItems = items.length;
 	}
 

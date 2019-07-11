@@ -1,7 +1,6 @@
 import ItemConfig from "../../Config/ConfigExtends/ItemConfig";
 import Game from "../../Game";
 import DTItemNum from "../../Config/ConfigExtends/DTItemNum";
-import IGameItem = proto.IGameItem;
 
 //======================
 // 物品 数据
@@ -19,7 +18,8 @@ export default class ItemData {
     // 创建(获得)时间
     obtainTime: number = 0;
 
-    setProtoData(data: IGameItem)
+    // setProtoData(data: IGameItem)
+    setProtoData(data: any)
     {
         this.id = data.id;
         this.count = data.count;
@@ -40,7 +40,8 @@ export default class ItemData {
     }
 
     // 物品类型
-    get itemType(): proto.ItemType  {
+    // get itemType(): proto.ItemType  {
+    get itemType(): any  {
         if (this.itemConfig)  {
             return this.itemConfig.type;
         }

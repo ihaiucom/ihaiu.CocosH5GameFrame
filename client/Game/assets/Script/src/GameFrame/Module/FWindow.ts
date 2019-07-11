@@ -1,13 +1,12 @@
 import Game from "../../Game";
 import MenuLayer from "../Menu/MenuLayer";
-import EngineAdapter from "../../EngineAdapter/EngineAdapter";
 
-import GComponent = fairygui.GComponent;
+
 
 //======================
 // 扩展 fairygui.Window
 //----------------------
-export default class FWindow extends fairygui.Window
+export default class FWindow extends fgui.Window
 {
 
     // 窗口容器
@@ -32,7 +31,8 @@ export default class FWindow extends fairygui.Window
 		if (this.isAddedStage)
 			return;
 		this.isAddedStage = true;
-		EngineAdapter.adapter.sResize.add(this.setScreenSize, this);
+		
+		Engine.stage.sResize.add(this.setScreenSize, this);
 	}
 
 
@@ -44,7 +44,7 @@ export default class FWindow extends fairygui.Window
 		}
 
 		this.isAddedStage = false;
-		EngineAdapter.adapter.sResize.remove(this.setScreenSize, this);
+		Engine.stage.sResize.remove(this.setScreenSize, this);
 	}
 
 
@@ -78,7 +78,7 @@ export default class FWindow extends fairygui.Window
 	//=========================
 	// 调用child GComponent的 onWindowWillShow
 	//-------------------------
-	private callChildOnWindowWillShow(com: fairygui.GComponent)
+	private callChildOnWindowWillShow(com: GComponent)
 	{
 		if (com)
 		{

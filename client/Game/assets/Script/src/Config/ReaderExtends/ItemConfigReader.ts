@@ -5,7 +5,6 @@
 
 
 import ItemConfigReaderStruct from "../ReaderStructs/ItemConfigReaderStruct";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import ItemConfig from "../ConfigExtends/ItemConfig";
 
 export default class ItemConfigReader extends ItemConfigReaderStruct

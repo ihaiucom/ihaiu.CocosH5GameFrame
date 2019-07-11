@@ -9,7 +9,6 @@ import MenuLayer from "./MenuLayer";
 import Game from "../../Game";
 import GameEventKey from "../../GameEventKey";
 import AssetItemInfo from "../AssetManagers/AssetItemInfo";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import SoundKey from "../../FGUI/Generates/SoundKey";
 import { MenuCloseOtherType } from "./MenuCloseOtherType";
 import { MenuLayerType } from "./MenuLayerType";

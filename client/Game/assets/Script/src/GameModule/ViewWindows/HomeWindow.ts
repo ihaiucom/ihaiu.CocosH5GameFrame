@@ -1,8 +1,6 @@
 import MWindow from "../../GameFrame/Module/MWindow";
 import Game from "../../Game";
 import GuiPackageNames from "../../FGUI/Generates/GuiPackageNames";
-import { AssetItemType } from "../../GameFrame/AssetManagers/AssetItemType";
-import Res from "../../Config/Keys/Res";
 import HomeWindowUI from "../../FGUI/Extends/SystemModuleHome/HomeWindowUI";
 
 //======================
@@ -33,9 +31,6 @@ export default class HomeWindow extends MWindow
     // 菜单创建
     protected onMenuCreate(): void
     {
-        // 屏幕点击特效
-        Game.stageClickFx.install();
-
         let windowUI = HomeWindowUI.createInstance();
         this.conent = windowUI;
         this.contentPane = windowUI;

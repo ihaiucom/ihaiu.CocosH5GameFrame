@@ -1,7 +1,6 @@
 import Prop from "./Prop";
 import PropertyConfig from "../../Config/ConfigExtends/PropertyConfig";
 import Game from "../../Game";
-import Engine from "../../EngineAdapter/Engine";
 
 export default class PropLevelDataItem
 {

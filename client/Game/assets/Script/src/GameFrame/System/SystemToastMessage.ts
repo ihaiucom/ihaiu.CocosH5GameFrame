@@ -1,4 +1,3 @@
-import Handler = laya.utils.Handler;
 import SystemToastMessage from "../../FGUI/Extends/GameLaunch/SystemToastMessage";
 
 //======================

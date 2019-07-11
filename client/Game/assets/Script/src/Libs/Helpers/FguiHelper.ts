@@ -11,7 +11,7 @@ export default class FguiHelper
     //=========================
     // 设置child.moduleWindow
     //-------------------------
-    static setChildWindow(com: fairygui.GComponent, window: MWindow)
+    static setChildWindow(com: GComponent, window: MWindow)
     {
         if (com)
         {
@@ -21,7 +21,7 @@ export default class FguiHelper
             {
                 for (let i = 0; i < com._children.length; i++)
                 {
-                    this.setChildWindow(com._children[i], window);
+                    this.setChildWindow(<GComponent>com._children[i], window);
                 }
             }
         }
@@ -30,7 +30,7 @@ export default class FguiHelper
     //=========================
     // 设置child.onWindowInited
     //-------------------------
-    static callChildOnWindowInited(com: fairygui.GComponent)
+    static callChildOnWindowInited(com: GComponent)
     {
         if (com)
         {
@@ -45,7 +45,7 @@ export default class FguiHelper
             {
                 for (let i = 0; i < com._children.length; i++)
                 {
-                    this.callChildOnWindowInited(com._children[i]);
+                    this.callChildOnWindowInited(<GComponent>com._children[i]);
                 }
             }
         }
@@ -55,14 +55,9 @@ export default class FguiHelper
     //=========================
     // 设置child.onWindowDestory
     //-------------------------
-    static callChildOnWindowDestory(com: fairygui.GObject)
+    static callChildOnWindowDestory(com: GObject)
     {
 
-        let container;
-        if (com instanceof fairygui.GObject)
-        {
-            container = com.displayObject;
-        }
 
 
         if (com)
@@ -79,14 +74,15 @@ export default class FguiHelper
                 {
                     return;
                 }
-            }
-
-            for (let i = container.numChildren - 1; i >= 0; i--)
-            {
-                let display = <laya.display.Sprite>container.getChildAt(i);
-                if (display["$owner"])
-                    this.callChildOnWindowDestory(display["$owner"]);
-            }
+			}
+			
+			if(com instanceof GComponent)
+			{
+				for(let i = com.numChildren - 1; i >= 0; i --)
+				{
+					this.callChildOnWindowDestory(com.getChildAt(i));
+				}
+			}
         }
     }
 
@@ -96,7 +92,7 @@ export default class FguiHelper
     //=========================
     // 调用child GComponent的 onWindowShow
     //-------------------------
-    static callChildOnWindowShow(com: fairygui.GComponent)
+    static callChildOnWindowShow(com: GComponent)
     {
         if (com)
         {
@@ -126,7 +122,7 @@ export default class FguiHelper
             {
                 for (let i = 0; i < com._children.length; i++)
                 {
-                    this.callChildOnWindowShow(com._children[i]);
+                    this.callChildOnWindowShow(<GComponent>com._children[i]);
                 }
             }
         }
@@ -135,7 +131,7 @@ export default class FguiHelper
     //=========================
     // 调用child GComponent的 onWindowHide
     //-------------------------
-    static callChildOnWindowHide(com: fairygui.GComponent)
+    static callChildOnWindowHide(com: GComponent)
     {
         if (com)
         {
@@ -165,7 +161,7 @@ export default class FguiHelper
             {
                 for (let i = 0; i < com._children.length; i++)
                 {
-                    this.callChildOnWindowHide(com._children[i]);
+                    this.callChildOnWindowHide(<GComponent>com._children[i]);
                 }
             }
         }
@@ -175,7 +171,7 @@ export default class FguiHelper
     //=========================
     // 调用child GComponent的 onTabShow
     //-------------------------
-    static callChildOnTabShow(com: fairygui.GObject)
+    static callChildOnTabShow(com: GObject)
     {
         if (com)
         {
@@ -201,7 +197,7 @@ export default class FguiHelper
     //=========================
     // 调用child GComponent的 onTabHide
     //-------------------------
-    static callChildOnTabHide(com: fairygui.GObject)
+    static callChildOnTabHide(com: GObject)
     {
         if (com)
         {
@@ -224,44 +220,44 @@ export default class FguiHelper
 
 	
     /*------------------------------- 我是漂亮的分割线 ----------------------------------------- */
-	private static helpPoint = new Laya.Point();
+	// private static helpPoint = new Laya.Point();
 	// 屏幕自适应
 	static autoScreenScaleShrink(content: fairygui.GObject, alignH?: string, alignV?: string)
 	{
-		let rate = Game.screenSetting.screenScaleShrink;
+		// let rate = Game.screenSetting.screenScaleShrink;
 
-		content.scaleX = rate;
-		content.scaleY = rate;
-		if (alignH)
-		{
-			let parent = fairygui.GRoot.inst;
+		// content.scaleX = rate;
+		// content.scaleY = rate;
+		// if (alignH)
+		// {
+		// 	let parent = fairygui.GRoot.inst;
 
-			switch (alignH)
-			{
-				case Laya.Stage.ALIGN_LEFT:
-					content.x = 0;
-					break;
-				case Laya.Stage.ALIGN_CENTER:
-					content.x = (parent.width - content.width * rate) * 0.5;
-					break;
-				case Laya.Stage.ALIGN_RIGHT:
-					content.x = parent.width - content.width * rate;
-					break;
-			}
+		// 	switch (alignH)
+		// 	{
+		// 		case Laya.Stage.ALIGN_LEFT:
+		// 			content.x = 0;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_CENTER:
+		// 			content.x = (parent.width - content.width * rate) * 0.5;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_RIGHT:
+		// 			content.x = parent.width - content.width * rate;
+		// 			break;
+		// 	}
 
-			switch (alignV)
-			{
-				case Laya.Stage.ALIGN_TOP:
-					content.y = 0;
-					break;
-				case Laya.Stage.ALIGN_MIDDLE:
-					content.y = (parent.height - content.height * rate) * 0.5;
-					break;
-				case Laya.Stage.ALIGN_BOTTOM:
-					content.y = parent.height - content.height * rate;
-					break;
-			}
-		}
+		// 	switch (alignV)
+		// 	{
+		// 		case Laya.Stage.ALIGN_TOP:
+		// 			content.y = 0;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_MIDDLE:
+		// 			content.y = (parent.height - content.height * rate) * 0.5;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_BOTTOM:
+		// 			content.y = parent.height - content.height * rate;
+		// 			break;
+		// 	}
+		// }
 	}
 
 	
@@ -282,50 +278,50 @@ export default class FguiHelper
 	// 屏幕自适应
 	static autoScreenScale(content: fairygui.GObject, alignH?: string, alignV?: string)
 	{
-		let rate = Game.screenSetting.screenScaleExpand;
+		// let rate = Game.screenSetting.screenScaleExpand;
 
-		content.scaleX = rate;
-		content.scaleY = rate;
-		if (alignH)
-		{
-			let parent = fairygui.GRoot.inst;
+		// content.scaleX = rate;
+		// content.scaleY = rate;
+		// if (alignH)
+		// {
+		// 	let parent = fairygui.GRoot.inst;
 
-			switch (alignH)
-			{
-				case Laya.Stage.ALIGN_LEFT:
-					content.x = 0;
-					break;
-				case Laya.Stage.ALIGN_CENTER:
-					content.x = (parent.width - content.width * rate) * 0.5;
-					break;
-				case Laya.Stage.ALIGN_RIGHT:
-					content.x = parent.width - content.width * rate;
-					break;
-			}
+		// 	switch (alignH)
+		// 	{
+		// 		case Laya.Stage.ALIGN_LEFT:
+		// 			content.x = 0;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_CENTER:
+		// 			content.x = (parent.width - content.width * rate) * 0.5;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_RIGHT:
+		// 			content.x = parent.width - content.width * rate;
+		// 			break;
+		// 	}
 
-			switch (alignV)
-			{
-				case Laya.Stage.ALIGN_TOP:
-					content.y = 0;
-					break;
-				case Laya.Stage.ALIGN_MIDDLE:
+		// 	switch (alignV)
+		// 	{
+		// 		case Laya.Stage.ALIGN_TOP:
+		// 			content.y = 0;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_MIDDLE:
 				
-					if(content.parent)
-					{
-						this.helpPoint.y = (parent.height - content.height * rate) * 0.5;
-						this.helpPoint = content.parent.globalToLocal(0, this.helpPoint.y, this.helpPoint);
-						content.y = this.helpPoint.y;
-					}
-					else
-					{
-						content.y = (parent.height - content.height * rate) * 0.5;
-					}
-					break;
-				case Laya.Stage.ALIGN_BOTTOM:
-					content.y = parent.height - content.height * rate;
-					break;
-			}
-		}
+		// 			if(content.parent)
+		// 			{
+		// 				this.helpPoint.y = (parent.height - content.height * rate) * 0.5;
+		// 				this.helpPoint = content.parent.globalToLocal(0, this.helpPoint.y, this.helpPoint);
+		// 				content.y = this.helpPoint.y;
+		// 			}
+		// 			else
+		// 			{
+		// 				content.y = (parent.height - content.height * rate) * 0.5;
+		// 			}
+		// 			break;
+		// 		case Laya.Stage.ALIGN_BOTTOM:
+		// 			content.y = parent.height - content.height * rate;
+		// 			break;
+		// 	}
+		// }
 	}
 
 	
@@ -358,96 +354,96 @@ export default class FguiHelper
 	// 屏幕自适应 场景大小
 	static autoScreenSize(content: fairygui.GObject, alignH?: string, alignV?: string)
 	{
-		let rate = Game.screenSetting.screenScaleExpand;
+		// let rate = Game.screenSetting.screenScaleExpand;
 
-		content.width = content.sourceWidth * rate;
-		content.height = content.sourceHeight * rate;
-		if (alignH)
-		{
-			let parent = fairygui.GRoot.inst;
+		// content.width = content.sourceWidth * rate;
+		// content.height = content.sourceHeight * rate;
+		// if (alignH)
+		// {
+		// 	let parent = fairygui.GRoot.inst;
 
-			switch (alignH)
-			{
-				case Laya.Stage.ALIGN_LEFT:
-					content.x = 0;
-					break;
-				case Laya.Stage.ALIGN_CENTER:
-					content.x = (parent.width - content.width) * 0.5;
-					break;
-				case Laya.Stage.ALIGN_RIGHT:
-					content.x = parent.width - content.width;
-					break;
-			}
+		// 	switch (alignH)
+		// 	{
+		// 		case Laya.Stage.ALIGN_LEFT:
+		// 			content.x = 0;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_CENTER:
+		// 			content.x = (parent.width - content.width) * 0.5;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_RIGHT:
+		// 			content.x = parent.width - content.width;
+		// 			break;
+		// 	}
 
-			switch (alignV)
-			{
-				case Laya.Stage.ALIGN_TOP:
-					content.y = 0;
-					break;
-				case Laya.Stage.ALIGN_MIDDLE:
-					if(content.parent)
-					{
-						this.helpPoint.y = (parent.height - content.height) * 0.5;
-						this.helpPoint = content.parent.globalToLocal(0, this.helpPoint.y, this.helpPoint);
-						content.y = this.helpPoint.y;
-					}
-					else
-					{
-						content.y = (parent.height - content.height) * 0.5;
-					}
-					break;
-				case Laya.Stage.ALIGN_BOTTOM:
-					content.y = parent.height - content.height;
-					break;
-			}
-		}
+		// 	switch (alignV)
+		// 	{
+		// 		case Laya.Stage.ALIGN_TOP:
+		// 			content.y = 0;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_MIDDLE:
+		// 			if(content.parent)
+		// 			{
+		// 				this.helpPoint.y = (parent.height - content.height) * 0.5;
+		// 				this.helpPoint = content.parent.globalToLocal(0, this.helpPoint.y, this.helpPoint);
+		// 				content.y = this.helpPoint.y;
+		// 			}
+		// 			else
+		// 			{
+		// 				content.y = (parent.height - content.height) * 0.5;
+		// 			}
+		// 			break;
+		// 		case Laya.Stage.ALIGN_BOTTOM:
+		// 			content.y = parent.height - content.height;
+		// 			break;
+		// 	}
+		// }
 	}
 
 	
 	// 屏幕自适应 -- 父容器大小
 	static autoParentSize(content: fairygui.GObject, alignH?: string, alignV?: string)
 	{
-		let rate = Game.screenSetting.screenScaleExpand;
+		// let rate = Game.screenSetting.screenScaleExpand;
 
-		content.width = content.sourceWidth * rate;
-		content.height = content.sourceHeight * rate;
-		if (alignH)
-		{
-			let parent = fairygui.GRoot.inst;
+		// content.width = content.sourceWidth * rate;
+		// content.height = content.sourceHeight * rate;
+		// if (alignH)
+		// {
+		// 	let parent = fairygui.GRoot.inst;
 
-			switch (alignH)
-			{
-				case Laya.Stage.ALIGN_LEFT:
-					content.x = 0;
-					break;
-				case Laya.Stage.ALIGN_CENTER:
-					content.x = (parent.width - content.width) * 0.5;
-					break;
-				case Laya.Stage.ALIGN_RIGHT:
-					content.x = parent.width - content.width;
-					break;
-			}
+		// 	switch (alignH)
+		// 	{
+		// 		case Laya.Stage.ALIGN_LEFT:
+		// 			content.x = 0;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_CENTER:
+		// 			content.x = (parent.width - content.width) * 0.5;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_RIGHT:
+		// 			content.x = parent.width - content.width;
+		// 			break;
+		// 	}
 
-			switch (alignV)
-			{
-				case Laya.Stage.ALIGN_TOP:
-					content.y = 0;
-					break;
-				case Laya.Stage.ALIGN_MIDDLE:
-					content.y = (parent.height - content.height) * 0.5;
-					break;
-				case Laya.Stage.ALIGN_BOTTOM:
-					content.y = parent.height - content.height;
-					break;
-			}
-		}
+		// 	switch (alignV)
+		// 	{
+		// 		case Laya.Stage.ALIGN_TOP:
+		// 			content.y = 0;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_MIDDLE:
+		// 			content.y = (parent.height - content.height) * 0.5;
+		// 			break;
+		// 		case Laya.Stage.ALIGN_BOTTOM:
+		// 			content.y = parent.height - content.height;
+		// 			break;
+		// 	}
+		// }
 	}
 
 	// 屏幕居中
 	static centerScreen(content: fairygui.GObject)
 	{
-		content.x = (Game.screenSetting.screenWidth - content.width) * 0.5;
-		content.y = (Game.screenSetting.screenHeight - content.height) * 0.5;
+		// content.x = (Game.screenSetting.screenWidth - content.width) * 0.5;
+		// content.y = (Game.screenSetting.screenHeight - content.height) * 0.5;
 	}
 
 	static centerScreenForCenter(content: fairygui.GObject)
@@ -468,8 +464,7 @@ export default class FguiHelper
 	/** 获取值，使用访问路径 */
 	static getValueForPath(path: string, content?: any, ...args)
 	{
-
-		if (path.endsWith("()"))
+		if (path.eEndsWith("()"))
 		{
 			return FguiHelper.getFunResultForPath(path, content, ...args);
 		}
@@ -483,7 +478,7 @@ export default class FguiHelper
 	/** 获取函数结果值，使用访问路径 */
 	static getFunResultForPath(path: string, content?: any, ...args)
 	{
-		if (path.endsWith("()"))
+		if (path.eEndsWith("()"))
 		{
 			path = path.replace("()", "");
 			let fun: Function = FguiHelper.getFieldValueForPath(path, content);
@@ -592,112 +587,6 @@ export default class FguiHelper
 			col[uiNodeName] = value;
 
 		}
-	}
-
-	//设置灰色
-	static grayscaleMat: Array<number> = [0.3086, 0.6094, 0.0820, 0, 0, 0.3086, 0.6094, 0.0820, 0, 0, 0.3086, 0.6094, 0.0820, 0, 0, 0, 0, 0, 1, 0];
-	static grayscaleFilters = null;
-	static normalFilters = null;
-
-	static setGray(component: fairygui.GObject)
-	{
-		if (!component)
-			return;
-
-		if (!FguiHelper.grayscaleFilters)
-		{
-			var grayscaleFilter: Laya.ColorFilter = new Laya.ColorFilter(FguiHelper.grayscaleMat);
-			FguiHelper.grayscaleFilters = [grayscaleFilter];
-		}
-
-		component.displayObject.filters = FguiHelper.grayscaleFilters
-	}
-
-	static clearFilters(component: fairygui.GObject)
-	{
-		if (!component)
-			return;
-		component.displayObject.filters = null;
-	}
-
-	// 饱和度一半
-	static saturation =
-	[
-		0.5, 0, 0, 0, 0, //R
-		0, 0.5, 0, 0, 0, //G
-		0, 0, 0.5, 0, 0, //B
-		0, 0, 0, 1, 0, //A
-	];
-
-
-	private static _saturationFilters;
-	static get saturationFilters()
-	{
-		if (!FguiHelper._saturationFilters)
-		{
-			FguiHelper._saturationFilters = [new Laya.ColorFilter(FguiHelper.saturation)];
-		}
-		return FguiHelper._saturationFilters;
-    }
-    
-	// 饱和度一半
-	static saturation2 =
-	[
-		0.25, 0, 0, 0, 0, //R
-		0, 0.25, 0, 0, 0, //G
-		0, 0, 0.25, 0, 0, //B
-		0, 0, 0, 1, 0, //A
-	];
-	private static _saturationFilters2;
-	static get saturationFilters2()
-	{
-		if (!FguiHelper._saturationFilters2)
-		{
-			FguiHelper._saturationFilters2 = [new Laya.ColorFilter(FguiHelper.saturation2)];
-		}
-		return FguiHelper._saturationFilters2;
-	}
-	
-	
-	private static _saturationFilters3;
-	static get saturationFilters3()
-	{
-		if (!FguiHelper._saturationFilters3)
-		{
-			FguiHelper._saturationFilters3 = [new Laya.ColorFilter().adjustColor(0, -50, -100, 0)];
-		}
-		return FguiHelper._saturationFilters3;
-	}
-
-	static halfStaturation(obj: fairygui.GObject)
-	{
-		if (!obj)
-			return;
-		obj.displayObject.filters = FguiHelper.saturationFilters
-    }
-    
-	static half2Staturation(obj: fairygui.GObject)
-	{
-		if (!obj)
-			return;
-		obj.displayObject.filters = FguiHelper.saturationFilters2
-	}
-	
-	static half3Staturation(obj: fairygui.GObject)
-	{
-		if (!obj)
-			return;
-		obj.displayObject.filters = FguiHelper.saturationFilters3
-	}
-
-	//组件弹出效果
-	static boundEffect(target: fairygui.GObject, duration: number = 1000)
-	{
-		target.setPivot(0.5, 0.5);
-		target.setScale(0.5, 0.5);
-		Laya.Tween.to(target, { scaleX: 1, scaleY: 1 }, duration, Laya.Ease.backOut, Laya.Handler.create(null, () =>
-		{
-		}), 0, true, true);
 	}
 
 }

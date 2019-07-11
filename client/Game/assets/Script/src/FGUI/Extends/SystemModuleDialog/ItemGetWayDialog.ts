@@ -8,9 +8,6 @@ import Game from "../../../Game";
 import ItemData from "../../../GameModule/DataStructs/ItemData";
 import MenuLayer from "../../../GameFrame/Menu/MenuLayer";
 import FguiHelper from "../../../Libs/Helpers/FguiHelper";
-import Tween = Laya.Tween;
-import Ease = Laya.Ease;
-import Handler = Laya.Handler;
 import MenuButton from "../CommonBase/MenuButton";
 import ItemModel from "../../../GameModule/DataModels/ItemModel";
 
@@ -37,10 +34,10 @@ export default class ItemGetWayDialog extends ItemGetWayDialogStruct
         this.mMenuConfigs = menuConfigs;
 
         this.m_content.m_closeButton.onClick(this, this.close);
-        this.m_content.m_menuList.itemRenderer = Laya.Handler.create( this, this.renderListItem, null, false );
+        // this.m_content.m_menuList.itemRenderer = Handler.create( this, this.renderListItem, null, false );
         this.m_content.m_menuList.on( fairygui.Events.CLICK_ITEM, this, this.onClickMenuButton );
         this.m_content.m_menuList.numItems = menuConfigs.length;
-        this.m_content.m_itemIcon.setData( item, costNum );
+        // this.m_content.m_itemIcon.setData( item, costNum );
 
         MenuLayer.showDialogModel();
         FguiHelper.centerScreen(this);
@@ -51,7 +48,7 @@ export default class ItemGetWayDialog extends ItemGetWayDialogStruct
     }
 
     renderListItem( index: number, item: MenuButton ): void{
-        item.setData( this.mMenuConfigs[index] )
+        // item.setData( this.mMenuConfigs[index] )
     }
 
     close()
@@ -68,7 +65,7 @@ export default class ItemGetWayDialog extends ItemGetWayDialogStruct
     onClickMenuButton(menuButton: MenuButton)
     {
         this.close();
-        Game.menu.open(menuButton.menuConfig.menuId);
+        // Game.menu.open(menuButton.menuConfig.menuId);
     }
 
 }

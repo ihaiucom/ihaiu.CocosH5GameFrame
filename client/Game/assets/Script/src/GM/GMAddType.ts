@@ -1,5 +1,6 @@
 
-import EItemCategory = proto.ItemType;
+// import EItemCategory = proto.ItemType;
+declare var EItemCategory;
 
 /** 添加下拉菜单 */
 export default class GMAddType

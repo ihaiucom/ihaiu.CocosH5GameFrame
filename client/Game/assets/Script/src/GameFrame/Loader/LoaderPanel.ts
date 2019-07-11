@@ -1,5 +1,4 @@
 import LoaderPanelInterface from "./LoaderPanelInterface";
-import Signal from "../../Libs/signals/Signal";
 import FWindow from "../Module/FWindow";
 
 //======================

@@ -1,9 +1,9 @@
 import RoleData from "./RoleData";
 import Game from "../../Game";
-import AntFrame from "../../AntFrame/AntFrame";
-import GamerStatus = proto.GamerStatus;
-import IGamerMain = proto.IGamerMain;
-import IGamerMini = proto.IGamerMini;
+// import AntFrame from "../../AntFrame/AntFrame";
+// import GamerStatus = proto.GamerStatus;
+// import IGamerMain = proto.IGamerMain;
+// import IGamerMini = proto.IGamerMini;
 
 /** 玩家等级快照数据 */
 export class UserLevelSnapshotData
@@ -28,20 +28,21 @@ export default class UserData extends RoleData
     // 获取头像Url		
     get headIconUrl(): string
     {
-        if(!isNullOrEmpty(AntFrame.platform.userInfo.avatarUrl))
-            return AntFrame.platform.userInfo.avatarUrl;
+        // if(!isNullOrEmpty(AntFrame.platform.userInfo.avatarUrl))
+        //     return AntFrame.platform.userInfo.avatarUrl;
         
-        let portraitCfg = Game.config.headPortrait.getConfig(this.icon);
-        if(!portraitCfg) portraitCfg = Game.config.headPortrait.getConfig(1001);
-        if (portraitCfg)
-        {
-            return portraitCfg.iconUrl;
-        }
+        // let portraitCfg = Game.config.headPortrait.getConfig(this.icon);
+        // if(!portraitCfg) portraitCfg = Game.config.headPortrait.getConfig(1001);
+        // if (portraitCfg)
+        // {
+        //     return portraitCfg.iconUrl;
+        // }
         return "";
     }
 
     
-    public setGamerMain(data: IGamerMain)
+    public setGamerMain(data: any)
+    // public setGamerMain(data: IGamerMain)
     {
         console.info("UserData setGamerMain", data);
         super.setGamerMain(data);

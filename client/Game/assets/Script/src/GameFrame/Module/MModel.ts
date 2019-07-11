@@ -1,5 +1,4 @@
 import Game from "../../Game";
-import Signal from "../../Libs/signals/Signal";
 
 //======================
 // 模块 数据模型

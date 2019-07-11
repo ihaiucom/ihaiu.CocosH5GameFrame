@@ -2,12 +2,9 @@ import ConfigManager from "./Config/ConfigManager";
 import ScreenSettingConfig from "./GameSetting/ScreenSettingConfig";
 import GameLocalStorage from "./GameFrame/LocalStorage/GameLocalStorage";
 import GameDeviceConfig from "./GameSetting/GameDeviceConfig";
-import BrowserDetectConfig from "./GameSetting/BrowserDetectConfig";
 import LangManager from "./Config/LangManager";
 import AssetManager from "./GameFrame/AssetManagers/AssetManager";
 import GuiResPackageConfigReader from "./FGUI/GuiResPackageConfigReader";
-import SpriteResPackageConfigReader from "./FGUI/SpriteResPackageConfigReader";
-import Emitter from "./Libs/Emitter";
 import MenuManager from "./GameFrame/Menu/MenuManager";
 import ChannelManager from "./GameFrame/Channel/ChannelManager";
 import ModelManager from "./GameModule/ModelManager";
@@ -18,17 +15,15 @@ import GameSystemMessag from "./GameModule/GameSystemMessage";
 import LaunchText from "./Config/Keys/LaunchText";
 import LoaderSettingHandler from "./GameFrame/Loader/LoaderSettingHandler";
 import LoaderManager from "./GameFrame/Loader/LoaderManager";
-import AntNet from "./AntFrame/Net/AntNet";
-import ProtoHandlerList from "./AntFrame/Handlers/ProtoHandlerList";
-import TypedSignal from "./Libs/signals/TypedSignal";
 import UserData from "./GameModule/DataStructs/UserData";
 import GameLaunch from "./GameLaunch";
-import ProtoSenderList from "./AntFrame/ProtoSenderList";
 import ConfigExpression from './Config/ConfigExpression';
-import StageClickFx from "./FGUI/Customs/StageClickFx";
 import GamePreload from "./GamePreload";
-import ConstConfig from './Config/ConstConfig';
 import TookManager from "./SystemTook/TookManager";
+import SpriteResPackageConfigReader from "./FGUI/SpriteResPackageConfigReader";
+import AntNet from "../Lib/AntFrame/Net/AntNet";
+import ProtoSenderList from "./protosenders/ProtoSenderList";
+import ProtoHandlerList from "./protohandlers/ProtoHandlerList";
 
 export default class Game
 {
@@ -37,64 +32,60 @@ export default class Game
     //----------------------
 
     // 分辨率设置
-    static screenSetting:ScreenSettingConfig = new ScreenSettingConfig();
+    static screenSetting:ScreenSettingConfig;
     // 设备设置
-    static deviceSetting: GameDeviceConfig =  new GameDeviceConfig();
-    // 浏览器信息
-    static browserSetting: BrowserDetectConfig = new BrowserDetectConfig();
+    static deviceSetting: GameDeviceConfig;
     // 游戏启动文本
-    static launchText: LaunchText = new LaunchText();
+    static launchText: LaunchText;
 
 
-    static load: Loader = new Loader();
 
 
     //=====================
     // 游戏框架模块
     //----------------------
 
-    static launch: GameLaunch = new GameLaunch();
+    /** 游戏启动 */
+    static launch: GameLaunch ;
 
     // 资源
-    static asset: AssetManager = new AssetManager();
+    static asset: AssetManager ;
     // 配置
-    static config: ConfigManager = new ConfigManager();
+    static config: ConfigManager ;
     // 多语言
-    static lang: LangManager = LangManager.Instance;
-    // 常量配置
-    static constant: ConstConfig = new ConstConfig();
+    static lang: LangManager ;
     // 配置文件表达式
-    static configExp: ConfigExpression = new ConfigExpression();
+    static configExp: ConfigExpression ;
     // 声音
-    static sound: AudioManager = new AudioManager();
+    static sound: AudioManager ;
     // 时间
-    static time: GameTimeData = new GameTimeData();
+    static time: GameTimeData ;
     // 本地数据存储
-    static localStorage: GameLocalStorage = GameLocalStorage.Instance;
+    static localStorage: GameLocalStorage ;
     // 加载界面
-    static loader: LoaderManager = LoaderManager.Instance;
+    static loader: LoaderManager ;
     // 加载界面事件
-    static loaderSettingHandler: LoaderSettingHandler = new LoaderSettingHandler();
+    static loaderSettingHandler: LoaderSettingHandler ;
     // 菜单
-    static menu: MenuManager = new MenuManager();
+    static menu: MenuManager ;
     // 消息对话框
-    static system: GameSystemMessag = new GameSystemMessag();
+    static system: GameSystemMessag ;
     // 渠道
-    static channel: ChannelManager = ChannelManager.Instance;
+    static channel: ChannelManager ;
     // 版本管理
-    static version: VersionManager = VersionManager.Instance;
+    static version: VersionManager ;
     // 资源预加载
-    static preload:GamePreload = new GamePreload();
+    static preload:GamePreload ;
     
     //=====================
     // 游戏模块
     //----------------------
 
     // 数据模型
-    static moduleModel: ModelManager = new ModelManager();
+    static moduleModel: ModelManager ;
 
     // 自己用户角色数据
-    static user: UserData = new UserData();
+    static user: UserData ;
 
     
     //=====================
@@ -102,8 +93,8 @@ export default class Game
     //----------------------
     
     // ui资源配置
-    static guiRes: GuiResPackageConfigReader = new GuiResPackageConfigReader();
-    static spriteRes: SpriteResPackageConfigReader = new SpriteResPackageConfigReader();
+    static guiRes: GuiResPackageConfigReader ;
+    static spriteRes: SpriteResPackageConfigReader ;
 
 
     
@@ -112,33 +103,109 @@ export default class Game
     //----------------------
 
     // 游戏--事件
-    static event: Emitter = new Emitter();
+    static event: Emitter ;
 
     // 网络
-    static net = AntNet;
+    static net ;
     // 协议--消息处理器列表
     static protoHandler ;
     // 协议--消息发送器列表
-    static sender = new ProtoSenderList();
+    static sender ;
     // 订阅管理器
-    static took = new TookManager();
+    static took ;
     
     
 
-    //=====================
-    // 其他
-    //----------------------
-    
-    /** 屏幕点击特效 */
-    static stageClickFx = new StageClickFx();
-    
+    private static isInited: boolean = false;
     //=====================
     // 初始化
     //----------------------
     static init()
     {
-        Game.protoHandler = new ProtoHandlerList();
-        Game.protoHandler.init();
+
+        if(this.isInited)
+            return;
+        this.isInited = true;
+        
+        /*--- 游戏设置 --*/
+        
+        // 分辨率设置
+        this. screenSetting = new ScreenSettingConfig();
+        // 设备设置
+        this.deviceSetting =  new GameDeviceConfig();
+        // 游戏启动文本
+        this.launchText = new LaunchText();
+
+
+
+        /*--- 游戏框架模块 --*/
+
+        /** 游戏启动 */
+        this.launch = new GameLaunch();
+        // 资源
+        this.asset = new AssetManager();
+        // 配置
+        this.config = new ConfigManager();
+        // 多语言
+        this.lang = LangManager.Instance;
+        // 配置文件表达式
+        this.configExp = new ConfigExpression();
+        // 声音
+        this.sound = new AudioManager();
+        // 时间
+        this.time = new GameTimeData();
+        // 本地数据存储
+        this.localStorage = GameLocalStorage.Instance;
+        // 加载界面
+        this.loader = LoaderManager.Instance;
+        // 加载界面事件
+        this.loaderSettingHandler = new LoaderSettingHandler();
+        // 菜单
+        this.menu = new MenuManager();
+        // 消息对话框
+        this.system = new GameSystemMessag();
+        // 渠道
+        this.channel = ChannelManager.Instance;
+        // 版本管理
+        this.version = VersionManager.Instance;
+        // 资源预加载
+        this.preload = new GamePreload();
+
+
+        /*--- 游戏模块 --*/
+
+        // 数据模型
+        this.moduleModel = new ModelManager();
+
+        // 自己用户角色数据
+        this.user = new UserData();
+
+        
+        /*--- 资源 --*/
+        
+        // ui资源配置
+        this.guiRes = new GuiResPackageConfigReader();
+        this.spriteRes = new SpriteResPackageConfigReader();
+
+
+        
+        /*--- 事件 --*/
+
+        // 游戏--事件
+        this.event = new Emitter();
+
+        // 网络
+        this.net = AntNet;
+        // 协议--消息处理器列表
+        this.protoHandler = new ProtoHandlerList();
+        this.protoHandler.init();
+        // 协议--消息发送器列表
+        this.sender = new ProtoSenderList();
+        // 订阅管理器
+        this.took = new TookManager();
+
+        
+        
     }
 
 }

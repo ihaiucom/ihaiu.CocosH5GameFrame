@@ -5,7 +5,6 @@
 
 
 import UnlockConfigReaderStruct from "../ReaderStructs/UnlockConfigReaderStruct";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import UnlockConfig from "../ConfigExtends/UnlockConfig";
 
 export default class UnlockConfigReader extends UnlockConfigReaderStruct

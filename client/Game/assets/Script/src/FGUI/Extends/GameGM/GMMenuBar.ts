@@ -1,6 +1,5 @@
 import GMMenuBarStruct from "../../Generates/GameGM/GMMenuBarStruct";
 import GMWindow from "../../../GM/GMWindow";
-import Handler = Laya.Handler;
 import GMMenuType from "../../../GM/GMMenuType";
 
 export default class GMMenuBar extends GMMenuBarStruct
@@ -14,8 +13,7 @@ export default class GMMenuBar extends GMMenuBarStruct
 
 		this.m_menuList.setVirtual();
 		this.m_menuList.setVirtualAndLoop();
-
-		this.m_menuList.itemRenderer = Handler.create(this, this.renderListItem, null, false);
+		this.m_menuList.setItemRenderer(this.renderListItem, this);
 		this.m_menuList.numItems = GMMenuType.list.length;
 
 		this.m_menuList.on(fairygui.Events.CLICK_ITEM, this, this.onClickItem);

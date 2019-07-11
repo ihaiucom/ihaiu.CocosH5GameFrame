@@ -2,7 +2,7 @@ import MWindow from "../GameFrame/Module/MWindow";
 import Game from "../Game";
 
 // 组件代码模版, 没有用到的方法尽量删掉
-export class FguiComponentTemplete extends fairygui.GComponent
+export class FguiComponentTemplete extends fgui.GComponent
 {
     // 窗口
     moduleWindow: MWindow;

@@ -11,16 +11,16 @@ export default class ScreenBG extends ScreenBGStruct
     onWindowShow()
     {
         this.setScreenSize();
-        Laya.stage.on(laya.events.Event.RESIZE, this, this.setScreenSize);
+        Engine.stage.sResize.add(this.setScreenSize, this);
     }
 
     onWindowHide()
     {
-        Laya.stage.off(laya.events.Event.RESIZE, this, this.setScreenSize);
+        Engine.stage.sResize.remove(this.setScreenSize, this);
     }
 
     setScreenSize()
     {
-        FguiHelper.autoScreenSize(this, Laya.Stage.ALIGN_CENTER, Laya.Stage.ALIGN_MIDDLE);
+        FguiHelper.autoScreenSize(this, Engine.Stage.ALIGN_CENTER, Engine.Stage.ALIGN_MIDDLE);
     }
 }

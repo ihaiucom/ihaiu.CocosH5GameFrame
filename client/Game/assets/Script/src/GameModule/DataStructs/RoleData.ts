@@ -1,7 +1,4 @@
 import Game from '../../Game';
-import GamerStatus = proto.GamerStatus;
-import IGamerMain = proto.IGamerMain;
-import IGamerMini = proto.IGamerMini;
 import HeadPortraitConfig from '../../Config/ConfigExtends/HeadPortraitConfig';
 
 export default class RoleData
@@ -19,7 +16,8 @@ export default class RoleData
     public psid: number;
 
     //玩家状态, 仅用作客户端显示使用
-    public state: GamerStatus;
+    // public state: GamerStatus;
+    public state: any;
 
     //玩家姓名
     public name: string;
@@ -60,7 +58,8 @@ export default class RoleData
     public vipLevel: number = 1;
     
     
-    public setGamerMain(data: IGamerMain)
+    public setGamerMain(data: any)
+    // public setGamerMain(data: IGamerMain)
     {
         for(var key in data)
         {
@@ -68,7 +67,8 @@ export default class RoleData
         }
     }
 
-    public set setGamerMini(data: IGamerMini)
+    public set setGamerMini(data: any)
+    // public set setGamerMini(data: IGamerMini)
     {
         for(var key in data)
         {

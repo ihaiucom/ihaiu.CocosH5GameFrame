@@ -20,9 +20,9 @@ export default class GMWindow extends MWindow
     {
         GameGMBinder.bindAll();
         // 加载UI
-        Laya.loader.load([
-            { url: "res/fgui/GameGM.bin", type: Laya.Loader.BUFFER },
-        ], Laya.Handler.create(this, this.onLoaded));
+        Engine.loader.load([
+            { url: "res/fgui/GameGM.bin", type: Loader.BUFFER },
+        ], Handler.create(this, this.onLoaded));
     }
 
     private onLoaded()

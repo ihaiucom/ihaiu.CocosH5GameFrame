@@ -2,7 +2,6 @@
 import VersionConfig from "./VersionConfig";
 import VersionData from "./VersionData";
 import Game from "../Game";
-import Signal from "../Libs/signals/Signal";
 
 
 export default class VersionManager

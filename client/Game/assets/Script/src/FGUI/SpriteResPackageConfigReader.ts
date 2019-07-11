@@ -1,4 +1,3 @@
-import Dictionary from "../Libs/Helpers/Dictionary";
 import GuiResPackageConfig from "./GuiResPackageConfig";
 
 /////////////////////////////////////

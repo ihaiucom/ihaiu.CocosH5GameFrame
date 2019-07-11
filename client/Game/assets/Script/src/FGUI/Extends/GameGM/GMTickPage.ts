@@ -1,6 +1,5 @@
 import GMTickPageStruct from "../../Generates/GameGM/GMTickPageStruct";
 import GMWindow from "../../../GM/GMWindow";
-import { GMTimeLoopSortType } from "./GMTimeLoopPage";
 
 export default class GMTickPage extends GMTickPageStruct
 {

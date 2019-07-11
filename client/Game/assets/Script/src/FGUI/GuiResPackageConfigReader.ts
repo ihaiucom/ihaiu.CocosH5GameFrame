@@ -3,7 +3,6 @@
 // http://blog.ihaiu.com
 /////////////////////////////////////
 
-import Dictionary from "../Libs/Helpers/Dictionary";
 import GuiResPackageConfig from "./GuiResPackageConfig";
 
 // =====================

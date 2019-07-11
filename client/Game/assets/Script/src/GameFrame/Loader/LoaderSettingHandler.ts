@@ -1,6 +1,5 @@
 import Game from "../../Game";
 import { LoaderId } from "./LoaderId";
-import Mathf from "../../Libs/Mathf";
 
 //======================
 // 加载界面消息处理器

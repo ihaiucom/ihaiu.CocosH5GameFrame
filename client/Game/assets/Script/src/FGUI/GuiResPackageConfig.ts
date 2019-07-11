@@ -1,5 +1,5 @@
-import Loader = Laya.Loader;
 import GuiSetting from "./GuiSetting";
+
 
 // =====================
 // fgui包资源配置

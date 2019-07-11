@@ -1,5 +1,4 @@
 import GMPopupMenuStruct from "../../Generates/GameGM/GMPopupMenuStruct";
-import TypedSignal from "../../../Libs/signals/TypedSignal";
 import GMPopupMenu_item from "./GMPopupMenu_item";
 
 export default class GMPopupMenu extends GMPopupMenuStruct

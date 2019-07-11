@@ -1,10 +1,8 @@
 import FWindow from "./FWindow";
-import Signal from "../../Libs/signals/Signal";
 import { MenuId } from "../../GameModule/MenuId";
 import MenuOpenParameter from "../Menu/MenuOpenParameter";
 import AssetItemInfo from "../AssetManagers/AssetItemInfo";
 import { AssetItemType } from "../AssetManagers/AssetItemType";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import AssetHelper from "../AssetManagers/AssetHelper";
 import GuiPackageNames from "../../FGUI/Generates/GuiPackageNames";
 import Game from "../../Game";

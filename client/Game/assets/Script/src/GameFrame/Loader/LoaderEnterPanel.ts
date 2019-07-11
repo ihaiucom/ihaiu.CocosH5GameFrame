@@ -1,7 +1,6 @@
 import LoaderPanel from "./LoaderPanel";
 import LaunchLoaderPanel from "../../FGUI/Extends/GameLaunch/LaunchLoaderPanel";
 import Game from "../../Game";
-import Random from "../../Libs/Helpers/Random";
 
 //======================
 // 加载界面--进入游戏

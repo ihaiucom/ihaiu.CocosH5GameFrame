@@ -1,4 +1,3 @@
-import Signal from "../../Libs/signals/Signal";
 
     export default interface LoaderPanelInterface
     {

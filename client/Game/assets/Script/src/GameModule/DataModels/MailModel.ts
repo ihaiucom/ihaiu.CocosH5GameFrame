@@ -1,5 +1,4 @@
 import MModel from "../../GameFrame/Module/MModel";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import MailData from "../DataStructs/MailData";
 
 export default class MailModel extends MModel

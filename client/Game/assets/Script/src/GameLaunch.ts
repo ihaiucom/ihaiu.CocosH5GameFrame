@@ -1,5 +1,4 @@
 import GuiSetting from "./FGUI/GuiSetting";
-import FGLoader from "./FGUI/FGLoader";
 import GuiBinderList from "./FGUI/Generates/GuiBinderList";
 import GuiResPackageConfig from "./FGUI/GuiResPackageConfig";
 import Game from './Game';
@@ -8,16 +7,9 @@ import { LoaderId } from "./GameFrame/Loader/LoaderId";
 import MenuLayer from "./GameFrame/Menu/MenuLayer";
 import { MenuId } from "./GameModule/MenuId";
 import MenuWindows from "./GameModule/MenuWindows";
-import AntNet from "./AntFrame/Net/AntNet";
-import AntFrame from "./AntFrame/AntFrame";
-import AntFrameConfig from "./AntFrame/AntFrameConfig";
-import Random from './Libs/Helpers/Random';
-import MsgKey from "./Config/Keys/MsgKey";
-import Dictionary from "./Libs/Helpers/Dictionary";
 import GM from "./GM/GM";
-import TestParticle from "./TestParticle";
 import SoundKey from "./FGUI/Generates/SoundKey";
-import { AssetItemType } from "./GameFrame/AssetManagers/AssetItemType";
+import AntFrameConfig from "../Lib/AntFrame/AntFrameConfig";
 declare var net;
 export default class GameLaunch 
 {
@@ -37,7 +29,7 @@ export default class GameLaunch
 	{
 		console.log(window.navigator);
 		console.log(window.navigator.userAgent);
-		console.log("Game.browserSetting.isWeixinMinigame=", Game.browserSetting.isWeixinMinigame);
+		console.log("isWXGame=", Engine.borwer.isWXGame, "  isWXGameMainDomain=", Engine.borwer.isWXGameMainDomain, "  isWXGameSubDomain=", Engine.borwer.isWXGameSubDomain);
 		
 
 		Game.init();
@@ -93,8 +85,6 @@ export default class GameLaunch
 		
 		// Game.loader.closeAll();
 		// Game.home.install();
-
-		await new TestParticle().InitSync();
 	}
 
 	// 异步加载版本清单文件
@@ -124,8 +114,6 @@ export default class GameLaunch
 
 		// 初始化 fgui资源列表
 		Game.guiRes.install();
-		fgui.addLoadHandler();
-        fgui.GRoot.create();
 
 		// 设置fgui文件后缀
 		// fgui.UIConfig.packageFileExtension = GuiSetting.packageFileExtension;

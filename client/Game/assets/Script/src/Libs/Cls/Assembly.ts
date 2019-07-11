@@ -1,4 +1,4 @@
-import UnOrderMultiMap from "../../Libs/Helpers/UnOrderMultiMap";
+
 import { ClassType } from "./ClassType";
 import { AssemblyNamespace } from "./AssemblyNamespace";
 
@@ -6,7 +6,15 @@ import { AssemblyNamespace } from "./AssemblyNamespace";
 
 export default class Assembly
 {
-    private static _namespace = new UnOrderMultiMap<string, ClassType>();
+    private static __namespace: UnOrderMultiMap<string, ClassType>;
+    private static get _namespace():UnOrderMultiMap<string, ClassType>
+    {
+        if(!this.__namespace)
+        {
+            this.__namespace = new UnOrderMultiMap<string, ClassType>();
+        }
+        return this.__namespace;
+    }
 
     public static register(classType: ClassType, name: string)
     {
@@ -18,6 +26,7 @@ export default class Assembly
     {
         return this._namespace.get(namespaceName);
     }
+    
 }
 
 window['Assembly'] = Assembly;

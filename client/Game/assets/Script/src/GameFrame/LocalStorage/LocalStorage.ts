@@ -40,24 +40,24 @@ export default class LocalStorage
     // string
     setItem(key: string, value: string, isGobal: boolean = false): void
     {
-        Laya.LocalStorage.setItem(this.getKey(key, isGobal), value);
+        Engine.LocalStorage.setItem(this.getKey(key, isGobal), value);
     }
 
     getItem(key: string, isGobal: boolean = false): string
     {
-        return Laya.LocalStorage.getItem(this.getKey(key, isGobal));
+        return Engine.LocalStorage.getItem(this.getKey(key, isGobal));
     }
 
 
     // string
     setString(key: string, value: string, isGobal: boolean = false): void
     {
-        Laya.LocalStorage.setItem(this.getKey(key, isGobal), value);
+        Engine.LocalStorage.setItem(this.getKey(key, isGobal), value);
     }
 
     getString(key: string, isGobal: boolean = false): string
     {
-        let val = Laya.LocalStorage.getItem(this.getKey(key, isGobal));
+        let val = Engine.LocalStorage.getItem(this.getKey(key, isGobal));
         if (val === undefined || val === null)
         {
             val = "";
@@ -69,24 +69,24 @@ export default class LocalStorage
     // boolean
     setBoolean(key: string, value: boolean, isGobal: boolean = false): void
     {
-        Laya.LocalStorage.setItem(this.getKey(key, isGobal), value ? "true" : "false");
+        Engine.LocalStorage.setItem(this.getKey(key, isGobal), value ? "true" : "false");
     }
 
     getBoolean(key: string, isGobal: boolean = false): boolean
     {
-        return Laya.LocalStorage.getItem(this.getKey(key, isGobal)) == "true";
+        return Engine.LocalStorage.getItem(this.getKey(key, isGobal)) == "true";
     }
 
 
     // int
     setInt(key: string, value: number, isGobal: boolean = false): void
     {
-        Laya.LocalStorage.setItem(this.getKey(key, isGobal), value.toString());
+        Engine.LocalStorage.setItem(this.getKey(key, isGobal), value.toString());
     }
 
     getInt(key: string, isGobal: boolean = false): number
     {
-        let val = Laya.LocalStorage.getItem(this.getKey(key, isGobal));
+        let val = Engine.LocalStorage.getItem(this.getKey(key, isGobal));
         if (val)
         {
             return parseInt(val);
@@ -98,12 +98,12 @@ export default class LocalStorage
     // float
     setFloat(key: string, value: number, isGobal: boolean = false): void
     {
-        Laya.LocalStorage.setItem(this.getKey(key, isGobal), value.toString());
+        Engine.LocalStorage.setItem(this.getKey(key, isGobal), value.toString());
     }
 
     getFloat(key: string, isGobal: boolean = false): number
     {
-        let val = Laya.LocalStorage.getItem(this.getKey(key, isGobal));
+        let val = Engine.LocalStorage.getItem(this.getKey(key, isGobal));
         if (val)
         {
             return parseFloat(val);
@@ -116,30 +116,30 @@ export default class LocalStorage
 
     setJSON(key: string, value: any, isGobal: boolean = false): void
     {
-        Laya.LocalStorage.setJSON(this.getKey(key, isGobal), value);
+        Engine.LocalStorage.setJSON(this.getKey(key, isGobal), value);
     }
 
     getJSON(key: string, isGobal: boolean = false): any
     {
-        return Laya.LocalStorage.getJSON(this.getKey(key, isGobal));
+        return Engine.LocalStorage.getJSON(this.getKey(key, isGobal));
     }
 
 
     removeItem(key: string, isGobal: boolean = false): void
     {
-        return Laya.LocalStorage.removeItem(this.getKey(key, isGobal));
+        return Engine.LocalStorage.removeItem(this.getKey(key, isGobal));
     }
 
 
     hasItem(key: string, isGobal: boolean = false): boolean
     {
-        return !isNullOrEmpty(Laya.LocalStorage.getItem(this.getKey(key, isGobal)));
+        return !isNullOrEmpty(Engine.LocalStorage.getItem(this.getKey(key, isGobal)));
     }
 
 
     clear()
     {
-        return Laya.LocalStorage.clear();
+        return Engine.LocalStorage.clear();
     }
 
 

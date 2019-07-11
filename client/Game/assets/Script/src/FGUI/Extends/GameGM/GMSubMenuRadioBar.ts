@@ -1,6 +1,4 @@
 import GMSubMenuRadioBarStruct from "../../Generates/GameGM/GMSubMenuRadioBarStruct";
-import TypedSignal from "../../../Libs/signals/TypedSignal";
-import Handler = Laya.Handler;
 
 export default class GMSubMenuRadioBar extends GMSubMenuRadioBarStruct
 {
@@ -16,7 +14,7 @@ export default class GMSubMenuRadioBar extends GMSubMenuRadioBarStruct
 		list.setVirtualAndLoop();
 
 		list.on(fairygui.Events.CLICK_ITEM, this, this.onClickItem);
-		list.itemRenderer = Handler.create(this, this.renderListItem, null, false);
+		list.setItemRenderer(this.renderListItem, this);
 		list.numItems = listData.length;
 	}
 

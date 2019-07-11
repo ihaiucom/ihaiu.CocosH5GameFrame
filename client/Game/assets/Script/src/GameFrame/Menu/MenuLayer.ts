@@ -1,4 +1,3 @@
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import { MenuLayerType } from "./MenuLayerType";
 import Game from "../../Game";
 import BGModel from "../../FGUI/Extends/GameLaunch/BGModel";
@@ -42,7 +41,15 @@ export default class MenuLayer
     static floatMsg: fairygui.GRoot;
 
     // 字典
-    static dict: Dictionary<MenuLayerType, fairygui.GRoot> = new Dictionary<MenuLayerType, fairygui.GRoot>();
+    private static _dict: Dictionary<MenuLayerType, fairygui.GRoot>;
+    static get dict(): Dictionary<MenuLayerType, fairygui.GRoot>
+    {
+        if(!this._dict)
+        {
+            this._dict = new Dictionary<MenuLayerType, fairygui.GRoot>();
+        }
+        return this._dict;
+    }
 
     // 对话框model
     static _dialogModel: fairygui.GComponent;
@@ -84,8 +91,9 @@ export default class MenuLayer
     // 初始化
     static install()
     {
+        fgui.addLoadHandler();
+        fgui.GRoot.create();
         // 根容器
-        Laya.stage.addChild(fairygui.GRoot.inst.displayObject);
         MenuLayer.root = fairygui.GRoot.inst;
 
 
@@ -127,7 +135,7 @@ export default class MenuLayer
             v.name = name;
         }
 
-        if(Game.browserSetting.isLiuHai)
+        if(Engine.borwer.isLiuHai)
         {
             switch(menuLayer)
             {
@@ -150,7 +158,7 @@ export default class MenuLayer
 
     public static getLayerHeight(menuLayer:MenuLayer)
     {
-        if(Game.browserSetting.isLiuHai)
+        if(Engine.borwer.isLiuHai)
         {
             switch(menuLayer)
             {

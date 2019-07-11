@@ -3,7 +3,6 @@ import GMWindow from "../../../GM/GMWindow";
 import DebugTimerLoop from "../../../GM/DebugTimerLoop";
 import DebugTimerLoopManager from "../../../GM/DebugTimerLoopManager";
 import GMTimeLoopItem from "./GMTimeLoopItem";
-import Handler = Laya.Handler;
 
 export enum GMTimeLoopSortType
 {
@@ -79,7 +78,7 @@ export default class GMTimeLoopPage extends GMTimeLoopPageStruct
 		let list = this.m_list;
 		list.setVirtual();
 		list.setVirtualAndLoop();
-		if (!list.itemRenderer) list.itemRenderer = Handler.create(this, this.renderListItem, null, false);
+		list.setItemRenderer(this.renderListItem, this);
 		list.numItems = items.length;
 	}
 

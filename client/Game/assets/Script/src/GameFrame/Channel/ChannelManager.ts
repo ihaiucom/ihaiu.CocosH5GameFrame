@@ -2,7 +2,6 @@ import Game from "../../Game";
 import { MenuId } from "../../GameModule/MenuId";
 import GameURL from "../../Config/Keys/GameURL";
 import TimeHelper from "../../GameHelpers/TimeHelper";
-import Engine from "../../EngineAdapter/Engine";
 export enum ServerStateType
 {
 	Close = 0,
@@ -261,10 +260,6 @@ export default class ChannelManager
 
 
 		let url = this.serverListUrl;
-		if (!url)
-		{
-			url = Game.browserSetting.urlServerList;
-		}
 
 		console.log("serverListUrl=" + url);
 		// alert("确定是热更新了 serverListUrl=" + url);

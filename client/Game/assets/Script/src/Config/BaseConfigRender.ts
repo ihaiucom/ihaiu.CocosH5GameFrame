@@ -1,5 +1,4 @@
 import BaseConfig from "./BaseConfig";
-import Dictionary from "../Libs/Helpers/Dictionary";
 import ConfigRenderInterface from "./Interfaces/ConfigRenderInterface";
 import ConfigLoaderInterface from "./Interfaces/ConfigLoaderInterface";
 import ConfigRenderComplete from "./Interfaces/ConfigRenderComplete";

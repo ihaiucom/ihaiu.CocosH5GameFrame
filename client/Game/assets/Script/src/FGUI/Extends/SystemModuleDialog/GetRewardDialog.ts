@@ -25,7 +25,7 @@ export default class GetRewardDialog extends GetRewardDialogStruct {
     protected constructFromXML(xml: any): void {
         super.constructFromXML(xml);
         this.dialogCtrl = new DialogCtrl().init(this);
-        this.m_list.itemRenderer = Laya.Handler.create(this, this.RenderItem, null, false);
+        // this.m_list.itemRenderer = Handler.create(this, this.RenderItem, null, false);
     }
 
     async open(items: any[]) {
@@ -57,6 +57,6 @@ export default class GetRewardDialog extends GetRewardDialogStruct {
     
     private RenderItem(index: number, obj: RewardNumItem) {
         let data = this.itemDataList[index];
-        obj.updateView(data);
+        // obj.updateView(data);
     }
 }

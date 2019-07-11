@@ -1,5 +1,4 @@
 import ConfigLoaderInterface from "../../Config/Interfaces/ConfigLoaderInterface";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import AssetItemInfo from "./AssetItemInfo";
 import ProgressCallbackInterface from "./ProgressCallbackInterface";
 import { AssetItemType } from "./AssetItemType";
@@ -8,7 +7,6 @@ import GuiResPackageConfig from "../../FGUI/GuiResPackageConfig";
 import GuiSetting from "../../FGUI/GuiSetting";
 import { ConfigLoaderCallback } from "../../Config/Interfaces/ConfigLoaderCallback";
 import AssetHelper from "./AssetHelper";
-import Engine from "../../EngineAdapter/Engine";
 export default class AssetManager implements ConfigLoaderInterface
 {
     loadedAssets = new Dictionary<string, number>();

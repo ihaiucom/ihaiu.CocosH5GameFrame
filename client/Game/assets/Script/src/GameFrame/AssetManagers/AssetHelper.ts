@@ -1,6 +1,4 @@
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import { AssetItemType } from "./AssetItemType";
-import Loader = Laya.Loader;
 import AssetItemInfo from "./AssetItemInfo";
 
 export default class AssetHelper

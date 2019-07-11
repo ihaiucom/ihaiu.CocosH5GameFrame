@@ -1,5 +1,4 @@
 import MenuValidate from "./MenuValidate";
-import Dictionary from "../Libs/Helpers/Dictionary";
 import { MenuId } from "./MenuId";
 import Game from "../Game";
 import { UnlockType } from "./DataEnums/UnlockType";

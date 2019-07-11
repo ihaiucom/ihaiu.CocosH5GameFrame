@@ -1,5 +1,4 @@
 import { LogLevel } from "./Log";
-import Engine from "../../EngineAdapter/Engine";
 
 export default class LogItem
 {
@@ -17,7 +16,7 @@ export default class LogItem
     /** 丢回对象池 */
     public poolRecover()
     {
-        Engine.Pool.recover(LogItem.POOL_SIGN, this)
+        Pool.recover(LogItem.POOL_SIGN, this)
     }
 
 
@@ -26,7 +25,7 @@ export default class LogItem
     /** 从对象池里获取对象 */
     public static poolGet():LogItem
     {
-        let item = <LogItem> Engine.Pool.getItemByClass(LogItem.POOL_SIGN, LogItem)
+        let item = <LogItem> Pool.getItemByClass(LogItem.POOL_SIGN, LogItem)
         return item;
     }
 }

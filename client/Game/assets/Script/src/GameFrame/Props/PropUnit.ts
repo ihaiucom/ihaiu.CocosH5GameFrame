@@ -1,4 +1,3 @@
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import PropAttachData from "./PropAttachData";
 import PropHelper from "./PropHelper";
 import { PropType } from "./PropType";

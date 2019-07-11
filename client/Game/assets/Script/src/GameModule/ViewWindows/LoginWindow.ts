@@ -3,7 +3,6 @@ import LoginWindowUI from "../../FGUI/Extends/ModuleLogin/LoginWindowUI";
 import MenuOpenParameter from "../../GameFrame/Menu/MenuOpenParameter";
 import { MenuOpenType } from "../../GameFrame/Menu/MenuOpenType";
 import Game from "../../Game";
-import GuiPackageNames from "../../FGUI/Generates/GuiPackageNames";
 
 export enum LoginTabType
 {

@@ -1,8 +1,5 @@
 import ConfigManagerList from "./ConfigManagerList";
-import TypedSignal from "../Libs/signals/TypedSignal";
-import Signal from "../Libs/signals/Signal";
 import ConfigLoaderInterface from "./Interfaces/ConfigLoaderInterface";
-import Typed3Signal from "../Libs/signals/Typed3Signal";
 import ConfigManagerExpressionList from "./ConfigManagerExpressionList";
 
 export default class ConfigManager extends ConfigManagerExpressionList

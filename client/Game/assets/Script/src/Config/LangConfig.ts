@@ -1,5 +1,4 @@
 import BaseConfig from "./BaseConfig";
-import Dictionary from "../Libs/Helpers/Dictionary";
 
 export default class LangConfig extends BaseConfig
 {

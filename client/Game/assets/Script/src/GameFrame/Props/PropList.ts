@@ -1,5 +1,4 @@
 import Prop from "./Prop";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import { PropType } from "./PropType";
 
 export default class PropList

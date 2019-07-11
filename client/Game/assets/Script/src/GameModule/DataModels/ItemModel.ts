@@ -1,5 +1,4 @@
 import MModel from "../../GameFrame/Module/MModel";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import ItemData from "../DataStructs/ItemData";
 
 export enum eItemTab

@@ -1,12 +1,34 @@
-import Dictionary from "../Libs/Helpers/Dictionary";
+
 import Game from "../Game";
 
-export default class FGLoader extends fairygui.GLoader
+export default class FGLoader extends fgui.GLoader
 {
 	// 最后一次没有设置引用的时间
-	static freeDictForTime: Dictionary<string, number> = new Dictionary<string, number>();
+	private static _freeDictForTime: Dictionary<string, number>;
+	static freeDictForTime()
+	{
+		if(!this._freeDictForTime)
+		{
+			this._freeDictForTime = new Dictionary<string, number>();
+		}
+		return this._freeDictForTime;
+
+	}
+
 	// 引用次数
-	static freeDictForNum: Dictionary<string, number> = new Dictionary<string, number>();
+	private static _freeDictForNum: Dictionary<string, number>;
+	
+	static freeDictForNum()
+	{
+		if(!this._freeDictForNum)
+		{
+			this._freeDictForNum = new Dictionary<string, number>();
+		}
+		return this._freeDictForNum;
+	}
+	
+
+
 
 	private static _freeList: string[] = [];
 	public static get freeList(): string[]
@@ -65,7 +87,7 @@ export default class FGLoader extends fairygui.GLoader
 			let url = list.pop();
 			// console.log("--ClearRes:" + url);
 			FGLoader.removeFree(url);
-			Laya.loader.clearRes(url);
+			Engine.loader.clearRes(url);
 		}
 	}
 
@@ -167,7 +189,7 @@ export default class FGLoader extends fairygui.GLoader
 	}
 
 	//释放外部载入的资源
-	protected freeExternal(texture: laya.resource.Texture): void
+	protected freeExternal(texture: any): void
 	{
 		// console.log("freeExternal:" + this.url + "  " + texture.url);
 		super.freeExternal(texture);
@@ -181,7 +203,7 @@ export default class FGLoader extends fairygui.GLoader
 	}
 
 	// 载入完成后调用
-	protected onExternalLoadSuccess(texture: laya.resource.Texture): void
+	protected onExternalLoadSuccess(texture: any): void
 	{
 		// console.log("onExternalLoadSuccess:" + this.url);
 		super.onExternalLoadSuccess(texture);

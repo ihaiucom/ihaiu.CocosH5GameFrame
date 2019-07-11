@@ -1,17 +1,22 @@
-import Dictionary from "../Libs/Helpers/Dictionary";
 import { MenuId } from './MenuId';
 import ModuleConfig from "../GameFrame/Module/ModuleConfig";
 import MWindow from "../GameFrame/Module/MWindow";
 import HomeWindow from "./ViewWindows/HomeWindow";
 import LoginWindow from "./ViewWindows/LoginWindow";
-import BagWindow from './ViewWindows/BagWindow';
-import MailWindow from "./ViewWindows/MailWindow";
 
 //======================
 // 模块配置
 //----------------------
 export default class MenuWindows {
-    static dict: Dictionary<MenuId, ModuleConfig> = new Dictionary<MenuId, ModuleConfig>();
+    private static _dict: Dictionary<MenuId, ModuleConfig>;
+    static get dict(): Dictionary<MenuId, ModuleConfig>
+    {
+        if(!this._dict)
+        {
+            this._dict = new Dictionary<MenuId, ModuleConfig>();
+        }
+        return this._dict;
+    }
 
     static get(menuId: MenuId): ModuleConfig {
         return MenuWindows.dict.getValue(menuId);
@@ -26,8 +31,5 @@ export default class MenuWindows {
 
         MenuWindows.add(MenuId.Login, LoginWindow);
         MenuWindows.add(MenuId.Home, HomeWindow);
-
-        MenuWindows.add(MenuId.Bag, BagWindow);
-        MenuWindows.add(MenuId.Mail, MailWindow)
     }
 }

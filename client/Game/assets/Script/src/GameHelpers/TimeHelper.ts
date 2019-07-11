@@ -2,7 +2,6 @@ import Game from "../Game";
 import LangManager from "../Config/LangManager";
 import LangType from "../Config/LangType";
 import TEXT from "../Config/Keys/TEXT";
-import Mathf from "../Libs/Mathf";
 
 
 export default class TimeHelper

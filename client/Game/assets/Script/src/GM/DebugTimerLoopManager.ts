@@ -1,5 +1,4 @@
 import DebugTimerLoop from "./DebugTimerLoop";
-import Dictionary from "../Libs/Helpers/Dictionary";
 import Game from "../Game";
 
 export default class DebugTimerLoopManager

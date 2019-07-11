@@ -3,7 +3,6 @@ import Game from "../../../Game";
 import ItemConfig from "../../../Config/ConfigExtends/ItemConfig";
 import GMAddType from "../../../GM/GMAddType";
 import GMAddItem from "./GMAddItem";
-import Handler = Laya.Handler;
 import GMWindow from "../../../GM/GMWindow";
 import GMPopupMenu from "./GMPopupMenu";
 /////////////////////////////////////

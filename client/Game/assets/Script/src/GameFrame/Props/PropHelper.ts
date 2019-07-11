@@ -3,7 +3,6 @@ import BaseConfig from "../../Config/BaseConfig";
 import PropList from "./PropList";
 import PropField from "./PropField";
 import PropId from './PropId';
-import Dictionary from '../../Libs/Helpers/Dictionary';
 
 export default class PropHelper
 {

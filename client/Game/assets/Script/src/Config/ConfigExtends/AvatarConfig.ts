@@ -8,7 +8,6 @@ import Game from "../../Game";
 import LangType from "../LangType";
 import AssetItemInfo from "../../GameFrame/AssetManagers/AssetItemInfo";
 import { AssetItemType } from "../../GameFrame/AssetManagers/AssetItemType";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import AssetHelper from "../../GameFrame/AssetManagers/AssetHelper";
 import Res from "../Keys/Res";
 

@@ -1,4 +1,3 @@
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import MenuCtl from "./MenuCtl";
 import { MenuId } from "../../GameModule/MenuId";
 import { MenuCtlStateType } from "./MenuCtlStateType";
@@ -6,11 +5,11 @@ import { MenuOpenType } from "./MenuOpenType";
 import Game from "../../Game";
 import MenuOpenParameter from "./MenuOpenParameter";
 import { MenuLayerType } from "./MenuLayerType";
-import FGLoader from "../../FGUI/FGLoader";
 import Log from "../Log/Log";
 import MenuWindows from "../../GameModule/MenuWindows";
 import HomeWindow from "../../GameModule/ViewWindows/HomeWindow";
 import TEXT from "../../Config/Keys/TEXT";
+import FGLoader from "../../FGUI/FGLoader";
 
 //=================
 // 模块管理器

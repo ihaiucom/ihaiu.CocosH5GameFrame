@@ -1,5 +1,4 @@
 import TookHandler from "./TookHandler";
-import Dictionary from "../Libs/Helpers/Dictionary";
 import Game from "../Game";
 import MenuValidateOpening from "../GameModule/MenuValidateOpening";
 import MenuValidateUnlock from "../GameModule/MenuValidateUnlock";
@@ -8,7 +7,6 @@ import FixedTimeTookHandler from "./FixedTimeTookHandler";
 import Assembly from "../Libs/Cls/Assembly";
 import { AssemblyNamespace } from "../Libs/Cls/AssemblyNamespace";
 import { ClassType } from "../Libs/Cls/ClassType";
-import Engine from "../EngineAdapter/Engine";
 
 //====================
 // 订阅管理器

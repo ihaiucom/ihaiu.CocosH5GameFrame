@@ -7,6 +7,4 @@ import PropIconItemStruct from "../../Generates/CommonGame/PropIconItemStruct";
 
 export default class PropIconItem extends PropIconItemStruct
 {
-    
-   
 }

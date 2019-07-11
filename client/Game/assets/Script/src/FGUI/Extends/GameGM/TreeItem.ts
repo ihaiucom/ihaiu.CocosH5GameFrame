@@ -7,7 +7,7 @@ export default class TreeItem extends TreeItemStruct
 	treeRoot: Tree;
 	treeParent: TreeItem | Tree;
 	layerLevel: number = 0;
-	data: fairygui.GComponent | fairygui.GObject | laya.display.Sprite;
+	data: fairygui.GComponent | fairygui.GObject;
 
 
 
@@ -36,7 +36,7 @@ export default class TreeItem extends TreeItemStruct
 
 
 
-	setData(data: fairygui.GComponent | fairygui.GObject | laya.display.Sprite, layerLevel: number = 0)
+	setData(data: fairygui.GComponent | fairygui.GObject , layerLevel: number = 0)
 	{
 		let otherText = "";
 		if (data instanceof fairygui.GTextField)
@@ -63,7 +63,7 @@ export default class TreeItem extends TreeItemStruct
 		}
 
 		this.m_openClose.visible = false;
-		if (data instanceof fairygui.GComponent || data instanceof laya.display.Sprite)	
+		if (data instanceof fairygui.GComponent )	
 		{
 			this.m_openClose.visible = true;
 			if (data == MenuLayer.gm)
@@ -71,36 +71,11 @@ export default class TreeItem extends TreeItemStruct
 				return;
 			}
 
-			// for (let i = 0; i < data.numChildren; i++)
-			// {
-			// 	let item: TreeItem = <TreeItem>this.treeRoot.itemPool.getObject(TreeItem.URL);
-			// 	item.treeParent = this;
-			// 	item.treeRoot = this.treeRoot;
-			// 	item.y = i * item.sourceHeight;
-			// 	item.width = this.m_list.width;
-			// 	this.m_list.addChild(item);
-			// 	if (data instanceof laya.display.Sprite)
-			// 	{
-			// 		item.setData(<laya.display.Sprite>data.getChildAt(i), layerLevel + 1);
-			// 	}
-			// 	else
-			// 	{
-			// 		item.setData(data.getChildAt(i), layerLevel + 1);
-			// 	}
-			// }
 
-			let container = data;
-			if (data instanceof fairygui.GComponent)
+			for(let i = 0; i < data.numChildren; i ++)
 			{
-				container = data.displayObject;
-			}
 
-
-			for (let i = 0; i < container.numChildren; i++)
-			{
-				let display = <laya.display.Sprite>container.getChildAt(i);
-				if (display["$owner"])
-					display = display["$owner"];
+				let display = data.getChildAt(i);
 				let item: TreeItem = <TreeItem>this.treeRoot.itemPool.getObject(TreeItem.URL);
 				item.treeParent = this;
 				item.treeRoot = this.treeRoot;
@@ -109,6 +84,8 @@ export default class TreeItem extends TreeItemStruct
 				this.m_list.addChild(item);
 				item.setData(display, layerLevel + 1);
 			}
+
+
 
 
 

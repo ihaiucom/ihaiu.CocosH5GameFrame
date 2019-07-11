@@ -5,7 +5,6 @@ import GuiResPackageConfig from "./FGUI/GuiResPackageConfig";
 import { AssetItemType } from "./GameFrame/AssetManagers/AssetItemType";
 import AvatarConfig from "./Config/ConfigExtends/AvatarConfig";
 import GuiPackageNames from "./FGUI/Generates/GuiPackageNames";
-import Dictionary from "./Libs/Helpers/Dictionary";
 import AssetHelper from "./GameFrame/AssetManagers/AssetHelper";
 
 /** 游戏预加载资源 */

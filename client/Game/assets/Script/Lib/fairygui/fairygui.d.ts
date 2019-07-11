@@ -684,7 +684,8 @@ declare namespace fgui {
 }
 declare namespace fgui {
     class GList extends GComponent {
-        itemRenderer: (index: number, item: GObject) => void;
+        // TODO ZF
+        private itemRenderer: (index: number, item: GObject) => void;
         itemProvider: (index: number) => string;
         scrollItemToViewOnClick: boolean;
         foldInvisibleItems: boolean;

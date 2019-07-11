@@ -1,11 +1,6 @@
 
-// import SoundManager = Laya.SoundManager;
-// import SoundChannel = Laya.SoundChannel;
-// import Handler = laya.utils.Handler;
 declare var SoundManager;
 declare var  SoundChannel;
-declare var  Handler;
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import Game from "../../Game";
 import SoundKey from "../../FGUI/Generates/SoundKey";
 //======================

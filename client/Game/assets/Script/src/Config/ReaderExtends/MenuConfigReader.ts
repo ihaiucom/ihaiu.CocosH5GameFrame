@@ -5,7 +5,6 @@
 
 
 import MenuConfigReaderStruct from "../ReaderStructs/MenuConfigReaderStruct";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import { MenuBarType } from "../../GameFrame/Menu/MenuBarType";
 import MenuConfig from "../ConfigExtends/MenuConfig";
 

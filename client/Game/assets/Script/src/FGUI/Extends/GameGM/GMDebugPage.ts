@@ -1,6 +1,5 @@
 import GMDebugPageStruct from "../../Generates/GameGM/GMDebugPageStruct";
 import GMLogItem from "./GMLogItem";
-import Handler = Laya.Handler;
 import GMWindow from "../../../GM/GMWindow";
 import { GMDeubgMenuType } from "../../../GM/GMDeubgMenuType";
 import LogItem from "../../../GameFrame/Log/LogItem";

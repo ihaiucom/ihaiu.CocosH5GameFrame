@@ -1,7 +1,6 @@
 import GMSelectServerPageStruct from "../../Generates/GameGM/GMSelectServerPageStruct";
 import GMWindow from "../../../GM/GMWindow";
 import ChannelManager, { ServerItem } from "../../../GameFrame/Channel/ChannelManager";
-import Handler = Laya.Handler;
 import Game from "../../../Game";
 import TEXT from "../../../Config/Keys/TEXT";
 

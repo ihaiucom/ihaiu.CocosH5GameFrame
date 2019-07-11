@@ -1,11 +1,8 @@
 import LangConfigLoaderList from "./LangConfigLoaderList";
-import Signal from "../Libs/signals/Signal";
 import ConfigLoaderInterface from "./Interfaces/ConfigLoaderInterface";
-import Typed3Signal from "../Libs/signals/Typed3Signal";
-import Dictionary from "../Libs/Helpers/Dictionary";
 import TEXT from "./Keys/TEXT";
-import FguiHelper from "../Libs/Helpers/FguiHelper";
 import LangConfigReader from "./LangConfigReader";
+import FguiHelper from "../Libs/Helpers/FguiHelper";
 
 /// 配置读取器列表
 export default class LangConfigLoader extends LangConfigLoaderList

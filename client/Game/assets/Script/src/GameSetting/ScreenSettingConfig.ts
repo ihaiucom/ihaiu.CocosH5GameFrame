@@ -14,12 +14,12 @@ export default class ScreenSettingConfig
 	// 屏幕分辨率
 	get screenWidth(): number
 	{
-		return Laya.stage.width;
+		return Engine.stage.width;
 	}
 
 	get screenHeight(): number
 	{
-		return Laya.stage.height;
+		return Engine.stage.height;
 	}
 
 	

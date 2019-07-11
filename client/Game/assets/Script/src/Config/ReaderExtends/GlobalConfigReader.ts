@@ -5,7 +5,6 @@
 
 
 import GlobalConfigReaderStruct from "../ReaderStructs/GlobalConfigReaderStruct";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import GlobalConfig from "../ConfigExtends/GlobalConfig";
 import Game from "../../Game";
 import GlobalKey from "../Keys/GlobalKey";

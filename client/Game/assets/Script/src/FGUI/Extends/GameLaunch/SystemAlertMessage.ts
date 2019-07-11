@@ -6,9 +6,6 @@
 import SystemAlertMessageStruct from "../../Generates/GameLaunch/SystemAlertMessageStruct";
 import MenuLayer from "../../../GameFrame/Menu/MenuLayer";
 import FguiHelper from "../../../Libs/Helpers/FguiHelper";
-import Ease = Laya.Ease;
-import Tween = Laya.Tween;
-import Handler = Laya.Handler;
 import Game from "../../../Game";
 
 export default class SystemAlertMessage extends SystemAlertMessageStruct

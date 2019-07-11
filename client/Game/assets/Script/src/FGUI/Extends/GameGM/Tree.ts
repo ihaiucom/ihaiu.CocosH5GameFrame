@@ -1,6 +1,7 @@
 import TreeStruct from "../../Generates/GameGM/TreeStruct";
 import TreeItem from "./TreeItem";
 
+
 export default class Tree extends TreeStruct
 {
 	data: fairygui.GComponent;

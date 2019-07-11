@@ -1,6 +1,5 @@
 import Game from "../Game";
 import LangType from "./LangType";
-import Dictionary from "../Libs/Helpers/Dictionary";
 import LangConfigLoader from "./LangConfigLoader";
 import LangConfigReader from "./LangConfigReader";
 import LangConfig from "./LangConfig";

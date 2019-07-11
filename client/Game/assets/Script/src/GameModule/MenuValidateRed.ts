@@ -1,6 +1,5 @@
 import MenuValidate from "./MenuValidate";
 import { MenuId } from "./MenuId";
-import Game from "../Game";
 
 //=========================
 // 验证红点

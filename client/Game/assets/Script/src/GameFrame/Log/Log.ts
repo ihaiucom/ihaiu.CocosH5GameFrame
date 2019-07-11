@@ -18,7 +18,13 @@ export enum LogLevelText
 
 export default class Log
 {
-    public static mineloger = new Loger();
+    private static _mineloger:Loger;
+    public static get mineloger():Loger
+    {
+        if(!this._mineloger)
+            this._mineloger = new Loger();
+        return this._mineloger;
+    }
     private static logger = console;
     private static level: LogLevel = LogLevel.Debug;
 

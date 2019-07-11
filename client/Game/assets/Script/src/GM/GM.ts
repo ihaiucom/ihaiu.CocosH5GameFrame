@@ -15,7 +15,7 @@ export default class GM
         let gm = this.gmButton = GMButton.createInstance();
 
         gm.draggable = true;
-        gm.dragBounds = new laya.maths.Rectangle(-50, -50, Laya.stage.width + 100, Laya.stage.height + 100);
+        gm.dragBounds = new Rectangle(-50, -50, Engine.stage.width + 100, Engine.stage.height + 100);
         gm.visible = true;
         window["gmButton"] = gm;
 
@@ -71,16 +71,46 @@ export default class GM
 
 
     
-    static serverCmd = new GMCmdList("ServerCmd");
-    static clientCmd = new GMCmdList("ClientCmd");
-    static historCmd = new GMCmdList("HistorCmd");
+    private static _serverCmd: GMCmdList;
+    private static _clientCmd: GMCmdList;
+    private static _historCmd: GMCmdList;
+
+    static get serverCmd():GMCmdList
+    {
+        if(!this._serverCmd)
+        {
+            this._serverCmd = new GMCmdList("ServerCmd");
+        }
+        return this._serverCmd;
+    }
+
+    
+    static get clientCmd():GMCmdList
+    {
+        if(!this._clientCmd)
+        {
+            this._clientCmd = new GMCmdList("ClientCmd");
+        }
+        return this._clientCmd;
+    }
+
+    
+    static get historCmd():GMCmdList
+    {
+        if(!this._historCmd)
+        {
+            this._historCmd = new GMCmdList("HistorCmd");
+        }
+        return this._historCmd;
+    }
+    
 
 
     
     static sendCmd(cmdName: string, cmdData: string | Object, isAddHostor: boolean = false)
     {
         let cmdItem: GMCmdItemData;
-        if (isString(cmdData))
+        if ( typeof cmdData === "string" )
         {
             cmdItem = { cnname: "", name: cmdName, data: JSON.parse(cmdData), datatxt: cmdData, isClient: false };
             cmdItem.isClient = cmdItem.data["isClient"] == true;

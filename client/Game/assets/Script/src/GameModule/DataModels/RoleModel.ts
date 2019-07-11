@@ -1,5 +1,4 @@
 import MModel from "../../GameFrame/Module/MModel";
-import Dictionary from "../../Libs/Helpers/Dictionary";
 import RoleData from "../DataStructs/RoleData";
 
 export default class RoleModel extends MModel
