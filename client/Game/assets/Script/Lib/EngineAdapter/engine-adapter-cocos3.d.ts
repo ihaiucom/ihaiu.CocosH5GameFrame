@@ -1,0 +1,1 @@
+declare class Rectangle extends cc.Rect{};
