@@ -1,6 +1,7 @@
 import AntFrame from "../Lib/AntFrame/AntFrame";
 import AntNet from "../Lib/AntFrame/Net/AntNet";
 import Game from "./Game";
+import { AssetItemType } from "./GameFrame/AssetManagers/AssetItemType";
 
 const {ccclass, property} = cc._decorator;
 
@@ -16,7 +17,7 @@ export default class GameMain extends cc.Component
 		engineAdapter();
 		Game.init();
 
-		// 启动游戏
+		// // 启动游戏
 		Game.launch.install();
 
 		// console.log("GameMain start");
@@ -29,8 +30,11 @@ export default class GameMain extends cc.Component
 
 		// this.login();
 
-		
+		// this.testConfig();
 	}
+
+
+
 
 	async login()
 	{

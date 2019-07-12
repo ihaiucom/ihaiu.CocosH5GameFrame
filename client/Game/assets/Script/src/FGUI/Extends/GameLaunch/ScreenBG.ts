@@ -21,6 +21,6 @@ export default class ScreenBG extends ScreenBGStruct
 
     setScreenSize()
     {
-        FguiHelper.autoScreenSize(this, Engine.Stage.ALIGN_CENTER, Engine.Stage.ALIGN_MIDDLE);
+        // FguiHelper.autoScreenSize(this, Engine.Stage.ALIGN_CENTER, Engine.Stage.ALIGN_MIDDLE);
     }
 }

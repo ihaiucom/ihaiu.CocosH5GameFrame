@@ -1,0 +1,12 @@
+{
+  "enableoverwrites": [
+	  {
+  		"src":"../../arts_res/SpineWorkspaceUI/ExportSK", 
+  		"dst":"../../client/Game/bin/res/spineUI"
+  	}
+  
+  ],
+  "disableoverwrites": [
+  	
+  ]
+}

@@ -220,7 +220,19 @@ export default class FguiHelper
 
 	
     /*------------------------------- 我是漂亮的分割线 ----------------------------------------- */
-	// private static helpPoint = new Laya.Point();
+	private static _helpPoint:Vec2;
+	private static get helpPoint()
+	{
+		if(!this._helpPoint)
+			this._helpPoint = new Vec2();
+		return this._helpPoint;
+	}
+
+	private static set helpPoint(v)
+	{
+		this._helpPoint = v;
+	}
+
 	// 屏幕自适应
 	static autoScreenScaleShrink(content: fairygui.GObject, alignH?: string, alignV?: string)
 	{
@@ -354,49 +366,49 @@ export default class FguiHelper
 	// 屏幕自适应 场景大小
 	static autoScreenSize(content: fairygui.GObject, alignH?: string, alignV?: string)
 	{
-		// let rate = Game.screenSetting.screenScaleExpand;
+		let rate = Game.screenSetting.screenScaleExpand;
 
-		// content.width = content.sourceWidth * rate;
-		// content.height = content.sourceHeight * rate;
-		// if (alignH)
-		// {
-		// 	let parent = fairygui.GRoot.inst;
+		content.width = content.sourceWidth * rate;
+		content.height = content.sourceHeight * rate;
+		if (alignH)
+		{
+			let parent = fairygui.GRoot.inst;
 
-		// 	switch (alignH)
-		// 	{
-		// 		case Laya.Stage.ALIGN_LEFT:
-		// 			content.x = 0;
-		// 			break;
-		// 		case Laya.Stage.ALIGN_CENTER:
-		// 			content.x = (parent.width - content.width) * 0.5;
-		// 			break;
-		// 		case Laya.Stage.ALIGN_RIGHT:
-		// 			content.x = parent.width - content.width;
-		// 			break;
-		// 	}
+			switch (alignH)
+			{
+				case Engine.Stage.ALIGN_LEFT:
+					content.x = 0;
+					break;
+				case Engine.Stage.ALIGN_CENTER:
+					content.x = (parent.width - content.width) * 0.5;
+					break;
+				case Engine.Stage.ALIGN_RIGHT:
+					content.x = parent.width - content.width;
+					break;
+			}
 
-		// 	switch (alignV)
-		// 	{
-		// 		case Laya.Stage.ALIGN_TOP:
-		// 			content.y = 0;
-		// 			break;
-		// 		case Laya.Stage.ALIGN_MIDDLE:
-		// 			if(content.parent)
-		// 			{
-		// 				this.helpPoint.y = (parent.height - content.height) * 0.5;
-		// 				this.helpPoint = content.parent.globalToLocal(0, this.helpPoint.y, this.helpPoint);
-		// 				content.y = this.helpPoint.y;
-		// 			}
-		// 			else
-		// 			{
-		// 				content.y = (parent.height - content.height) * 0.5;
-		// 			}
-		// 			break;
-		// 		case Laya.Stage.ALIGN_BOTTOM:
-		// 			content.y = parent.height - content.height;
-		// 			break;
-		// 	}
-		// }
+			switch (alignV)
+			{
+				case Engine.Stage.ALIGN_TOP:
+					content.y = 0;
+					break;
+				case Engine.Stage.ALIGN_MIDDLE:
+					if(content.parent)
+					{
+						this.helpPoint.y = (parent.height - content.height) * 0.5;
+						this.helpPoint = content.parent.globalToLocal(0, this.helpPoint.y, this.helpPoint);
+						content.y = this.helpPoint.y;
+					}
+					else
+					{
+						content.y = (parent.height - content.height) * 0.5;
+					}
+					break;
+				case Engine.Stage.ALIGN_BOTTOM:
+					content.y = parent.height - content.height;
+					break;
+			}
+		}
 	}
 
 	

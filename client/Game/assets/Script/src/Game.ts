@@ -25,6 +25,7 @@ import AntNet from "../Lib/AntFrame/Net/AntNet";
 import ProtoSenderList from "./protosenders/ProtoSenderList";
 import ProtoHandlerList from "./protohandlers/ProtoHandlerList";
 
+
 export default class Game
 {
     //=====================
@@ -38,8 +39,7 @@ export default class Game
     // 游戏启动文本
     static launchText: LaunchText;
 
-
-
+    
 
     //=====================
     // 游戏框架模块

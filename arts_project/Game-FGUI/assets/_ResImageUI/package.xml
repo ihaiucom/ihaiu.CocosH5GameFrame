@@ -108,7 +108,6 @@
     <image id="t5vj6r" name="icon_cellphone.png" path="/" exported="true"/>
     <image id="mic66z" name="npc2.png" path="/"/>
     <image id="krdkx" name="m003.png" path="/"/>
-    <image id="f84s2" name="pic_bg_login.png" path="/" exported="true" scale="" atlas="alone_npot"/>
   </resources>
   <publish name="_ResImageUI"/>
 </packageDescription>

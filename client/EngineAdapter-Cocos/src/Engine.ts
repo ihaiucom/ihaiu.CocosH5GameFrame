@@ -12,6 +12,7 @@ class Engine
     {
         this.timer = new Engines.Timer();
         this.loader = new Engines.LoaderManager();
+        this.stage = new Engines.Stage();
         this.borwer = new Engines.Browser();
         
         this['LocalStorage'] = Engines.LocalStorage;

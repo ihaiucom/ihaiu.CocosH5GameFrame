@@ -44,3 +44,7 @@ fgui.GList.prototype.setItemRenderer = function(method, caller)
 
 
 }
+
+
+
+window.fairyguiAdapter = fairyguiAdapter;

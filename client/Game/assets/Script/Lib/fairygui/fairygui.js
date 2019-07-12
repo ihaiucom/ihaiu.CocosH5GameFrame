@@ -1516,11 +1516,28 @@ window.__extends = (this && this.__extends) || (function () {
         };
         GObject.prototype.onDestroy = function () {
         };
-        GObject.prototype.onClick = function (listener, target) {
-            this._node.on(fgui.Event.CLICK, listener, target);
+        GObject.prototype.onClick = function (listener, target) 
+        {
+            if(target && typeof(target) == "function" )
+            {
+                this._node.on(fgui.Event.CLICK, target, listener);
+            }
+            else
+            {
+                this._node.on(fgui.Event.CLICK, listener, target);
+            }
         };
-        GObject.prototype.offClick = function (listener, target) {
-            this._node.off(fgui.Event.CLICK, listener, target);
+        GObject.prototype.offClick = function (listener, target) 
+        {
+            if(target && typeof(target) == "function" )
+            {
+                this._node.off(fgui.Event.CLICK, target, listener);
+            }
+            else
+            {
+                this._node.off(fgui.Event.CLICK, listener, target);
+            }
+
         };
         GObject.prototype.hasClickListener = function () {
             return this._node.hasEventListener(fgui.Event.CLICK);

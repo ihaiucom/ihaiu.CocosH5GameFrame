@@ -534,10 +534,12 @@ declare namespace Engines {
          * @return  返回 handler 本身。
          */
         setTo(caller: any, method: Function, args: Array<any>, once: boolean): Handler;
+        readonly bindRun: Function;
+        readonly bindRunWith: Function;
         /**
          * 执行处理器。
          */
-        run(): any;
+        run(...args: any[]): any;
         /**
          * 执行处理器，并携带额外数据。
          * @param	data 附加的回调数据，可以是单数据或者Array(作为多参)。

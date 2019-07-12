@@ -22,7 +22,14 @@ export default class AssetManager implements ConfigLoaderInterface
                 onLoaded: () =>
                 {
                     let txt = Engine.loader.getRes(path);
-                    callback(txt, path);
+                    if(txt)
+                    {
+                        if(typeof txt == "string")
+                            callback(txt, path);
+                        else
+                            callback(txt.text, path);
+                    }
+                    Engine.loader.clearRes(path);
                 }
             };
 
@@ -181,8 +188,10 @@ export default class AssetManager implements ConfigLoaderInterface
     loadFgui(packageConfig: GuiResPackageConfig, caller?: any, method?: Function)
     {
         let callback = {
-            apply: () =>
+            apply: (error?:any) =>
             {
+                if(error)
+                    console.warn(error);
 
                 GuiSetting.addPackage(packageConfig.packagePath, packageConfig);
 
@@ -208,6 +217,24 @@ export default class AssetManager implements ConfigLoaderInterface
         }
 
         Engine.loader.load(packageConfig.resArray, Handler.create(callback, callback.apply));
+        // cc.loader.loadResArray(packageConfig.resArray, null, 
+        //     (completedCount: number, totalCount: number, item: any)=>{
+        //         console.log(`progress ${completedCount} / ${totalCount}  item=`, item);
+        //     }, 
+        //     (error: Error, resource: any[])=>{
+
+        //         console.info(`error `, error);
+        //         console.info(`resource `, resource);
+        //         callback.apply();
+
+
+        //         console.log("==========");
+        //         for(let url of packageConfig.resArray)
+        //         {
+        //             console.info(cc.loader.getRes(url));
+
+        //         }
+        //     })
     }
 
     unloadFgui(packageName: string, forceDispose?: boolean)
@@ -248,10 +275,27 @@ export default class AssetManager implements ConfigLoaderInterface
     load(path: string, complete: Function, caller:any, type:AssetItemType)
     {
         Engine.loader.load(path, 
-            Handler.create(null, (res: any) =>
+            Handler.create(null, (error, res: any) =>
             {
+                if(error)
+                {
+                    console.warn(error);
+                }
+
                 if (complete)
                 {
+                    switch(type)
+                    {
+                        case AssetItemType.Json:
+                            if(res && res.json)
+                            {
+                                res = res.json;
+                            }
+                            break;
+                    }
+
+                    
+
                     if (caller)
                     {
                         complete.apply(caller, [res]);
@@ -266,7 +310,7 @@ export default class AssetManager implements ConfigLoaderInterface
     }
 
     // 加载资源, 异步
-    async loadAsync(path: string, type:AssetItemType): Promise<any>
+    async loadAsync(path: string, type?:AssetItemType): Promise<any>
     {
         return new Promise<void>((resolve)=>
         {

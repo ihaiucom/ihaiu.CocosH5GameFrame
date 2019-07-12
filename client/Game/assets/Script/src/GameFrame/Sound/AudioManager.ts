@@ -21,7 +21,7 @@ export default class AudioManager
 		// this.soundVolume = this.soundVolume;
 
 
-		this.onLogin();
+		// this.onLogin();
 	}
 
 	onAppResume()

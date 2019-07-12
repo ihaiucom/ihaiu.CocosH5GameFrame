@@ -45,14 +45,29 @@ namespace Engines
             return this;
         }
 
+        get bindRun(): Function
+        {
+            return this.run.bind(this);
+        }
+        
+        get bindRunWith(): Function
+        {
+            return this.runWith.bind(this);
+        }
+
         /**
          * 执行处理器。
          */
-        run(): any
+        run(...args): any
         {
             if (this.method==null)return null;
+            
+            if(this.args)
+            {
+                args = this.args.concat(args);
+            }
             var id=this._id;
-            var result=this.method.apply(this.caller,this.args);
+            var result=this.method.apply(this.caller,args);
             this._id===id && this.once && this.recover();
             return result;
         }

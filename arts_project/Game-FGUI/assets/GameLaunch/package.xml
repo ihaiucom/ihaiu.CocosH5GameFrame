@@ -30,6 +30,7 @@
     <component id="f84sp" name="WindowModalWaiting.xml" path="/" exported="true"/>
     <image id="f84s9" name="btn_gm.png" path="/_images_ui/"/>
     <component id="uohx13" name="GMButton.xml" path="/" exported="true"/>
+    <image id="f84s2" name="pic_bg_login.png" path="/_images_ui/" exported="true" scale="" atlas="alone_npot"/>
   </resources>
   <publish name="GameLaunch" genCode="true"/>
 </packageDescription>

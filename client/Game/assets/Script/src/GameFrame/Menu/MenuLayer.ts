@@ -95,6 +95,14 @@ export default class MenuLayer
         fgui.GRoot.create();
         // 根容器
         MenuLayer.root = fairygui.GRoot.inst;
+        MenuLayer.root.makeFullScreen();
+        MenuLayer.root.setPosition(0, 0);
+
+        let w = MenuLayer.root.width;
+        let h = MenuLayer.root.height;
+        
+        Engine.stage.width = w;
+        Engine.stage.height = h;
 
 
         MenuLayer.home = MenuLayer.createLayer(MenuLayerType.Home, "MenuLayer-home");
@@ -108,6 +116,7 @@ export default class MenuLayer
         MenuLayer.gm = MenuLayer.createLayer(MenuLayerType.GM, "MenuLayer-gm");
         MenuLayer.floatMsg = MenuLayer.createLayer(MenuLayerType.FloatMsg, "MenuLayer-floatMsg");
 
+
         MenuLayer.dict.add(MenuLayerType.Home, MenuLayer.home);
         MenuLayer.dict.add(MenuLayerType.HomeTop, MenuLayer.homeTop);
         MenuLayer.dict.add(MenuLayerType.Module, MenuLayer.module);
@@ -118,6 +127,8 @@ export default class MenuLayer
         MenuLayer.dict.add(MenuLayerType.Loader, MenuLayer.loader);
         MenuLayer.dict.add(MenuLayerType.GM, MenuLayer.gm);
         MenuLayer.dict.add(MenuLayerType.FloatMsg, MenuLayer.floatMsg);
+
+        
     }
 
     static getLayer(layerType: MenuLayerType): fairygui.GRoot
@@ -134,6 +145,8 @@ export default class MenuLayer
         {
             v.name = name;
         }
+
+        v.node.setPosition(0, 0);
 
         if(Engine.borwer.isLiuHai)
         {

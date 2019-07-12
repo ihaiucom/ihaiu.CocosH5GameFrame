@@ -4,6 +4,7 @@ var Engine = /** @class */ (function () {
     Engine.init = function () {
         this.timer = new Engines.Timer();
         this.loader = new Engines.LoaderManager();
+        this.stage = new Engines.Stage();
         this.borwer = new Engines.Browser();
         this['LocalStorage'] = Engines.LocalStorage;
         this['Handler'] = Engines.Handler;
@@ -828,14 +829,35 @@ var Engines;
             this.once = once;
             return this;
         };
+        Object.defineProperty(Handler.prototype, "bindRun", {
+            get: function () {
+                return this.run.bind(this);
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(Handler.prototype, "bindRunWith", {
+            get: function () {
+                return this.runWith.bind(this);
+            },
+            enumerable: true,
+            configurable: true
+        });
         /**
          * 执行处理器。
          */
         Handler.prototype.run = function () {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
             if (this.method == null)
                 return null;
+            if (this.args) {
+                args = this.args.concat(args);
+            }
             var id = this._id;
-            var result = this.method.apply(this.caller, this.args);
+            var result = this.method.apply(this.caller, args);
             this._id === id && this.once && this.recover();
             return result;
         };
@@ -961,6 +983,14 @@ var Engines;
             }
             else if (path instanceof Array) {
                 if (path.length > 0) {
+                    var urls = [];
+                    if (typeof path[0] != "string" && path[0] && path[0].url) {
+                        for (var _i = 0, path_1 = path; _i < path_1.length; _i++) {
+                            var item = path_1[_i];
+                            urls.push(item.url);
+                        }
+                        path = urls;
+                    }
                     if (path[0].eStartsWith("http://") || path[0].eStartsWith("https://")) {
                         this.loadUrl(path, onComplete, onProgress);
                     }
@@ -969,18 +999,27 @@ var Engines;
                     }
                 }
                 else {
-                    onComplete.run();
+                    onComplete.bindRun();
+                }
+            }
+            else if (typeof (path) == "object" && path['url']) {
+                path = path['url'];
+                if (path.eStartsWith("http://") || path.eStartsWith("https://")) {
+                    this.loadUrl(path, onComplete, onProgress);
+                }
+                else {
+                    this.loadRes(path, onComplete, onProgress);
                 }
             }
         };
         LoaderManager.prototype.loadRes = function (path, onComplete, onProgress, type) {
-            cc.loader.loadRes(path, onProgress ? onProgress.run : null, onComplete ? onComplete.run : null);
+            cc.loader.loadRes(path, onProgress ? onProgress.bindRun : null, onComplete ? onComplete.bindRun : null);
         };
         LoaderManager.prototype.loadResArray = function (paths, onComplete, onProgress) {
-            cc.loader.loadResArray(paths, onProgress ? onProgress.run : null, onComplete.run);
+            cc.loader.loadResArray(paths, null, onProgress ? onProgress.bindRun : null, onComplete.bindRun);
         };
         LoaderManager.prototype.loadUrl = function (url, onComplete, onProgress, type) {
-            cc.loader.load(url, onProgress ? onProgress.run : null, onComplete ? onComplete.run : null);
+            cc.loader.load(url, onProgress ? onProgress.bindRun : null, onComplete ? onComplete.bindRun : null);
         };
         LoaderManager.prototype.getRes = function (path) {
             return cc.loader.getRes(path);

@@ -12,8 +12,6 @@ export default class ModelManagerList
 	// 列表
 	list: MModel[] = [];
 
-	// 埋点数据
-	// buriedPoint: BuriedPointModel = new BuriedPointModel();
 	// 角色
 	role: RoleModel = new RoleModel();
 	// 物品

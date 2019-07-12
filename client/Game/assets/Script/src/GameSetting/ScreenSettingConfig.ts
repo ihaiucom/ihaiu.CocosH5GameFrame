@@ -4,8 +4,8 @@
 export default class ScreenSettingConfig
 {
 	// 开发分辨率
-	developWidth = 750;
-	developHeight = 1334;
+	developWidth = 1334;
+	developHeight = 750;
 	get developAspect(): number
 	{
 		return this.developWidth / this.developHeight;

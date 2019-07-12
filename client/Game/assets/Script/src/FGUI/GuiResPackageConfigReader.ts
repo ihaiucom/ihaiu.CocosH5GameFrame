@@ -47,17 +47,11 @@ export default class GuiResPackageConfigReader
             config.packageName = "CommonFx";
             config.resBin = "CommonFx.bin";
             config.resAtlas.push("CommonFx_atlas0.png");
-            config.resAtlas.push("CommonFx_atlas0.png.meta");
             config.resAtlas.push("CommonFx_atlas5.png");
-            config.resAtlas.push("CommonFx_atlas5.png.meta");
             config.resAtlas.push("CommonFx_atlas7.png");
-            config.resAtlas.push("CommonFx_atlas7.png.meta");
             config.resAtlas.push("CommonFx_atlas8.png");
-            config.resAtlas.push("CommonFx_atlas8.png.meta");
             config.resAtlas.push("CommonFx_atlas9.png");
-            config.resAtlas.push("CommonFx_atlas9.png.meta");
             config.resAtlas.push("CommonFx_atlas_h96rx.png");
-            config.resAtlas.push("CommonFx_atlas_h96rx.png.meta");
             this.addconfig(config)
 
 
@@ -86,7 +80,7 @@ export default class GuiResPackageConfigReader
             config.packageName = "GameLaunch";
             config.resBin = "GameLaunch.bin";
             config.resAtlas.push("GameLaunch_atlas0.png");
-            config.resAtlas.push("GameLaunch_atlas0.png.meta");
+            config.resAtlas.push("GameLaunch_atlas_f84s2.png");
             this.addconfig(config)
 
 
@@ -151,9 +145,7 @@ export default class GuiResPackageConfigReader
             config.packageName = "ModuleLogin";
             config.resBin = "ModuleLogin.bin";
             config.resAtlas.push("ModuleLogin_atlas0.png");
-            config.resAtlas.push("ModuleLogin_atlas0.png.meta");
             config.resAtlas.push("ModuleLogin_atlas_nz0c1.png");
-            config.resAtlas.push("ModuleLogin_atlas_nz0c1.png.meta");
             this.addconfig(config)
 
 
@@ -260,7 +252,6 @@ export default class GuiResPackageConfigReader
             config.packageName = "_ResFont";
             config.resBin = "_ResFont.bin";
             config.resAtlas.push("_ResFont_atlas0.png");
-            config.resAtlas.push("_ResFont_atlas0.png.meta");
             this.addconfig(config)
 
 
@@ -271,7 +262,6 @@ export default class GuiResPackageConfigReader
             config.packageName = "_ResImagePic";
             config.resBin = "_ResImagePic.bin";
             config.resAtlas.push("_ResImagePic_atlas0.png");
-            config.resAtlas.push("_ResImagePic_atlas0.png.meta");
             this.addconfig(config)
 
 
@@ -282,11 +272,7 @@ export default class GuiResPackageConfigReader
             config.packageName = "_ResImageUI";
             config.resBin = "_ResImageUI.bin";
             config.resAtlas.push("_ResImageUI_atlas0.png");
-            config.resAtlas.push("_ResImageUI_atlas0.png.meta");
             config.resAtlas.push("_ResImageUI_atlas2.png");
-            config.resAtlas.push("_ResImageUI_atlas2.png.meta");
-            config.resAtlas.push("_ResImageUI_atlas_f84s2.png");
-            config.resAtlas.push("_ResImageUI_atlas_f84s2.png.meta");
             this.addconfig(config)
 
 
@@ -297,9 +283,7 @@ export default class GuiResPackageConfigReader
             config.packageName = "_ResImageUIV1";
             config.resBin = "_ResImageUIV1.bin";
             config.resAtlas.push("_ResImageUIV1_atlas0.png");
-            config.resAtlas.push("_ResImageUIV1_atlas0.png.meta");
             config.resAtlas.push("_ResImageUIV1_atlas0_1.png");
-            config.resAtlas.push("_ResImageUIV1_atlas0_1.png.meta");
             this.addconfig(config)
 
 

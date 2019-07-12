@@ -2,6 +2,7 @@ import ConfigManagerList from "./ConfigManagerList";
 import ConfigLoaderInterface from "./Interfaces/ConfigLoaderInterface";
 import ConfigManagerExpressionList from "./ConfigManagerExpressionList";
 
+
 export default class ConfigManager extends ConfigManagerExpressionList
 {
     // 消息--加载进度

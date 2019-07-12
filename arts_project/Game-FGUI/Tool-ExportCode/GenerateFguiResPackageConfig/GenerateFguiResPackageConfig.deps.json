@@ -19,22 +19,34 @@
       },
       "CommandLine/2.0.275.0": {
         "runtime": {
-          "CommandLine.dll": {}
+          "CommandLine.dll": {
+            "assemblyVersion": "2.0.275.0",
+            "fileVersion": "2.0.275.0"
+          }
         }
       },
       "Newtonsoft.Json/11.0.0.0": {
         "runtime": {
-          "Newtonsoft.Json.dll": {}
+          "Newtonsoft.Json.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.2.21924"
+          }
         }
       },
       "NLog/4.0.0.0": {
         "runtime": {
-          "NLog.dll": {}
+          "NLog.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.5.0.6954"
+          }
         }
       },
       "System.Text.Encoding.CodePages/4.1.1.0": {
         "runtime": {
-          "System.Text.Encoding.CodePages.dll": {}
+          "System.Text.Encoding.CodePages.dll": {
+            "assemblyVersion": "4.1.1.0",
+            "fileVersion": "4.6.26515.6"
+          }
         }
       }
     }

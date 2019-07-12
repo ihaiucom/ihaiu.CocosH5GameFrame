@@ -18,7 +18,7 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 395,
+                "height": 394.09375,
                 "type": "panel",
                 "width": 382
               },
@@ -27,12 +27,12 @@
                 "children": [
                   "assets"
                 ],
-                "height": 540,
+                "height": 539.125,
                 "type": "panel",
                 "width": 382
               }
             ],
-            "height": 937,
+            "height": 935.21875,
             "type": "dock-v",
             "width": 382
           },
@@ -45,7 +45,7 @@
                     "children": [
                       "scene"
                     ],
-                    "height": 287,
+                    "height": 553.125,
                     "type": "panel",
                     "width": 794.984375
                   },
@@ -54,12 +54,12 @@
                     "children": [
                       "node-library"
                     ],
-                    "height": 287,
+                    "height": 553.125,
                     "type": "panel",
                     "width": 432.984375
                   }
                 ],
-                "height": 287,
+                "height": 553.125,
                 "type": "dock-h",
                 "width": 1229.984375
               },
@@ -69,12 +69,12 @@
                   "console",
                   "timeline"
                 ],
-                "height": 648,
+                "height": 380.09375,
                 "type": "panel",
                 "width": 1229.984375
               }
             ],
-            "height": 937,
+            "height": 935.21875,
             "type": "dock-v",
             "width": 1229.984375
           },
@@ -84,7 +84,7 @@
               "inspector",
               "cocos-services"
             ],
-            "height": 937,
+            "height": 935.21875,
             "type": "panel",
             "width": 304
           }

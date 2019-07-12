@@ -27,6 +27,7 @@ export default class GameLaunch
 	version = 10002;
 	async installAsync()
 	{
+		
 		console.log(window.navigator);
 		console.log(window.navigator.userAgent);
 		console.log("isWXGame=", Engine.borwer.isWXGame, "  isWXGameMainDomain=", Engine.borwer.isWXGameMainDomain, "  isWXGameSubDomain=", Engine.borwer.isWXGameSubDomain);
@@ -41,12 +42,13 @@ export default class GameLaunch
 
 		// 设置FGUI
 		await this.initFguiSetting();
+		
 
 		// 初始化加载界面
 		Game.loader.install();
 
 		// 初始化GM按钮
-		GM.installGMButton();
+		// GM.installGMButton();
 
 		// 初始化化版本信息
 		Game.version.init();
@@ -59,7 +61,6 @@ export default class GameLaunch
 		// await this.loadWebVersionConfigAsync();
 		// 加载版本清单文件
 		await this.loadVersionAsync();
-
 		// 加载配置
 		await this.initConfig();
 		// 加载多语言配置
